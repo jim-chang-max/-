@@ -1,0 +1,10 @@
+[
+  {
+    "userId": "guest",
+    "questionId": "q006",
+    "wrongCount": 1,
+    "lastWrongAt": "2026-07-09T00:00:00.000Z",
+    "resolved": false,
+    "reason": "欧拉图条件记忆不牢"
+  }
+]

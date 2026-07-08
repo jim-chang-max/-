@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>离散数学期末复习 - 测验</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-title">离散数学期末复习</span>
+        <span class="brand-subtitle">随机组卷 · 限时答题 · 自动评分</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="topics.html">知识点</a>
+        <a href="questions.html">题库</a>
+        <a href="mistakes.html">错题本</a>
+        <a href="plan.html">复习计划</a>
+        <a href="quiz.html">测验</a>
+        <a href="graph.html">知识图谱</a>
+        <a href="login.html">登录</a>
+      </nav>
+      <span class="tag" data-user-status>读取中</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-header">
+      <div>
+        <h1 class="page-title">测验模式</h1>
+        <p class="page-desc">按范围随机组卷，提交后用统计卡片展示分数、正确率和待复盘题目。</p>
+      </div>
+      <span class="tag warning" id="timerText">未开始</span>
+    </section>
+
+    <form class="card form-row" id="quizForm">
+      <div class="field">
+        <label for="quizChapter">章节</label>
+        <select id="quizChapter"></select>
+      </div>
+      <div class="field">
+        <label for="quizDifficulty">难度</label>
+        <select id="quizDifficulty">
+          <option value="">全部难度</option>
+          <option>基础</option>
+          <option>重点</option>
+          <option>提高</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="quizCount">题量</label>
+        <input id="quizCount" type="number" min="1" max="20" value="5">
+      </div>
+      <div class="field">
+        <label for="limitMinutes">限时分钟</label>
+        <input id="limitMinutes" type="number" min="1" max="180" value="20">
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <button class="button primary" type="submit">生成试卷</button>
+      </div>
+    </form>
+
+    <section class="grid" id="quizQuestions"></section>
+    <div class="button-row" style="margin-top: 16px;">
+      <button class="button primary hidden" id="submitQuiz">提交试卷</button>
+    </div>
+    <section id="quizResult" style="margin-top: 16px;"></section>
+  </main>
+
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

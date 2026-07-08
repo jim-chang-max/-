@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>离散数学期末复习 - 题库</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-title">离散数学期末复习</span>
+        <span class="brand-subtitle">章节筛选 · 即做即看解析</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="topics.html">知识点</a>
+        <a href="questions.html">题库</a>
+        <a href="mistakes.html">错题本</a>
+        <a href="plan.html">复习计划</a>
+        <a href="quiz.html">测验</a>
+        <a href="graph.html">知识图谱</a>
+        <a href="login.html">登录</a>
+      </nav>
+      <span class="tag" data-user-status>读取中</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-header">
+      <div>
+        <h1 class="page-title">题库</h1>
+        <p class="page-desc">支持章节、题型、难度、审核状态和关键词筛选，做题后会自动更新对错次数。</p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="review.html">待人工审核</a>
+        <a class="button primary" href="quiz.html">进入测验模式</a>
+      </div>
+    </section>
+
+    <form class="card question-filter-grid" id="filterForm">
+      <div class="field">
+        <label for="chapterFilter">章节</label>
+        <select id="chapterFilter"></select>
+      </div>
+      <div class="field">
+        <label for="typeFilter">题型</label>
+        <select id="typeFilter">
+          <option value="">全部题型</option>
+          <option value="choice">选择题</option>
+          <option value="judge">判断题</option>
+          <option value="blank">填空题</option>
+          <option value="calculation">计算题</option>
+          <option value="proof">证明题</option>
+          <option value="shortAnswer">简答题</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="difficultyFilter">难度</label>
+        <select id="difficultyFilter">
+          <option value="">全部难度</option>
+          <option value="easy">easy</option>
+          <option value="medium">medium</option>
+          <option value="hard">hard</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="needsReviewFilter">审核状态</label>
+        <select id="needsReviewFilter">
+          <option value="">全部</option>
+          <option value="true">待人工审核</option>
+          <option value="false">已通过</option>
+        </select>
+      </div>
+      <div class="field question-keyword">
+        <label for="keywordInput">关键词</label>
+        <input id="keywordInput" placeholder="搜索题干、知识点、标签、答案">
+      </div>
+    </form>
+
+    <section class="question-toolbar">
+      <span class="tag" id="questionCountText">读取中</span>
+      <span class="tag warning">答错会进入错题本</span>
+    </section>
+
+    <section class="grid" id="questionList"></section>
+  </main>
+
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/questions.js"></script>
+</body>
+</html>

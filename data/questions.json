@@ -1,0 +1,3217 @@
+[
+  {
+    "id": "DM0001",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "集合差",
+      "幂集"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 A={1,2,3}, B={1,2}，求 A-B；以及 ρ(A)-ρ(B)。",
+    "options": [],
+    "answer": "A-B={3}；ρ(A)-ρ(B)={{3},{1,3},{2,3},{1,2,3}}。",
+    "analysis": "A-B 是属于 A 但不属于 B 的元素；ρ(A) 表示 A 的幂集，ρ(A)-ρ(B) 保留含有元素 3 的所有子集。",
+    "tags": [
+      "集合",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0002",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "笛卡尔积",
+      "幂集",
+      "基数"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设有限集合 A，|A|=n，求 |ρ(A×A)|。",
+    "options": [],
+    "answer": "2^(n^2)",
+    "analysis": "|A×A|=n^2，一个 m 元集合的幂集基数为 2^m。",
+    "tags": [
+      "集合",
+      "幂集",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0003",
+    "chapter": "函数",
+    "knowledgePoints": [
+      "映射",
+      "双射"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 A={a,b}, B={1,2}，写出从 A 到 B 的所有映射，并指出其中的双射。",
+    "options": [],
+    "answer": "α1={(a,1),(b,1)}, α2={(a,2),(b,2)}, α3={(a,1),(b,2)}, α4={(a,2),(b,1)}；其中 α3、α4 是双射。",
+    "analysis": "从两个元素到两个元素的函数共有 2^2=4 个；一一对应的两个是双射。",
+    "tags": [
+      "函数",
+      "映射",
+      "双射",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0004",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "主析取范式",
+      "蕴含等值式"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "已知命题公式 G=¬(P→Q)∧R，求 G 的主析取范式。",
+    "options": [],
+    "answer": "P∧¬Q∧R",
+    "analysis": "P→Q 等价于 ¬P∨Q，故 ¬(P→Q) 等价于 P∧¬Q，再与 R 合取得 P∧¬Q∧R。",
+    "tags": [
+      "命题逻辑",
+      "范式",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0005",
+    "chapter": "树",
+    "knowledgePoints": [
+      "完全二叉树",
+      "度数"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 G 是完全二叉树，G 有 7 个点，其中 4 个叶点，则 G 的总度数和分枝点数分别是多少？",
+    "options": [],
+    "answer": "总度数为 12；分枝点数为 3。",
+    "analysis": "无向树边数为 n-1=6，总度数为 2m=12。非叶点数=7-4=3。",
+    "tags": [
+      "图论",
+      "树",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0006",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "交集",
+      "并集",
+      "差集"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 A={1,2,4}, B={3,4}，求 A∩B、A∪B、A-B。",
+    "options": [],
+    "answer": "A∩B={4}；A∪B={1,2,3,4}；A-B={1,2}。",
+    "analysis": "交集取公共元素，并集取全部元素，差集取属于 A 且不属于 B 的元素。",
+    "tags": [
+      "集合",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0007",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "等价关系",
+      "自反性",
+      "对称性",
+      "传递性"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 R 是集合 A 上的等价关系，则 R 具有哪三个特性？",
+    "options": [],
+    "answer": "自反性、对称性、传递性。",
+    "analysis": "等价关系的定义就是同时满足自反、对称、传递。",
+    "tags": [
+      "关系",
+      "等价关系",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-7"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0008",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "真值解释",
+      "蕴含"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设命题公式 G=¬(P→(Q∧R))，写出使公式 G 为真的解释。",
+    "options": [],
+    "answer": "(P,Q,R)=(1,0,0),(1,0,1),(1,1,0)。",
+    "analysis": "G 为真等价于 P 为真且 Q∧R 为假，即 P=1 且 Q、R 不全为 1。",
+    "tags": [
+      "命题逻辑",
+      "真值表",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-8"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0009",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系复合",
+      "关系幂"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设 A={1,2,3,4}，R1={(1,4),(2,3),(3,2)}, R2={(2,1),(3,2),(4,3)}，求 R1·R2、R2·R1、R1²。",
+    "options": [],
+    "answer": "R1·R2={(1,3),(2,2),(3,1)}；R2·R1={(2,4),(3,3),(4,2)}；R1²={(2,2),(3,3)}。",
+    "analysis": "按关系复合定义计算：若 (x,y)∈R1 且 (y,z)∈R2，则 (x,z)∈R1·R2。",
+    "tags": [
+      "关系",
+      "复合",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 1,
+      "index": "一-9"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0010",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "笛卡尔积",
+      "幂集",
+      "基数"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设有限集 A、B，|A|=m，|B|=n，求 |ρ(A×B)|。",
+    "options": [],
+    "answer": "2^(mn)",
+    "analysis": "|A×B|=mn，所以其幂集基数为 2^(mn)。",
+    "tags": [
+      "集合",
+      "幂集",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-10"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0011",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "区间集合",
+      "差集",
+      "交集"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 A={x|-1≤x≤1, x∈R}, B={x|0≤x<2, x∈R}，求 A-B、B-A、A∩B。",
+    "options": [],
+    "answer": "A-B={x|-1≤x<0, x∈R}；B-A={x|1<x<2, x∈R}；A∩B={x|0≤x≤1, x∈R}。",
+    "analysis": "画数轴即可比较两个区间的重叠和互补部分。",
+    "tags": [
+      "集合",
+      "区间",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-11"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0012",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "整除关系",
+      "偏序关系"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设 A={2,3,4,5,6}，R 是 A 上的整除关系，用列举法写出 R。",
+    "options": [],
+    "answer": "{(2,2),(2,4),(2,6),(3,3),(3,6),(4,4),(5,5),(6,6)}。",
+    "analysis": "整除关系中 (a,b)∈R 当且仅当 a 能整除 b，并且 a,b 都属于 A。",
+    "tags": [
+      "关系",
+      "整除",
+      "偏序",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-13"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0013",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "前束范式",
+      "量词"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设一阶逻辑公式 G=∀xP(x)→∃xQ(x)，求 G 的前束范式。",
+    "options": [],
+    "answer": "∃x(¬P(x)∨Q(x))。",
+    "analysis": "先消去蕴含并处理量词变元；原式等价于 ¬∀xP(x)∨∃xQ(x)，再化为存在量词形式。",
+    "tags": [
+      "谓词逻辑",
+      "前束范式",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-14"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0014",
+    "chapter": "树",
+    "knowledgePoints": [
+      "树",
+      "完全图",
+      "边数"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设 G 是具有 8 个顶点的树，则 G 中增加多少条边才能把 G 变成完全图？",
+    "options": [],
+    "answer": "21 条。",
+    "analysis": "K8 有 8×7/2=28 条边，树有 8-1=7 条边，需增加 28-7=21 条。",
+    "tags": [
+      "图论",
+      "树",
+      "完全图",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-15"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0015",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "有限论域",
+      "量词消除"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "设谓词的定义域为 {a,b}，将表达式 ∀xR(x)→∃xS(x) 中量词消除，写成对应的命题公式。",
+    "options": [],
+    "answer": "(R(a)∧R(b))→(S(a)∨S(b))。",
+    "analysis": "全称量词在二元论域上化为合取，存在量词化为析取。",
+    "tags": [
+      "谓词逻辑",
+      "量词消除",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-16"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0016",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系复合",
+      "关系幂"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设 A={1,2,3,4}，R={(1,1),(1,2),(2,3)}, S={(1,3),(2,3),(3,2)}，求 R·S 和 R²。",
+    "options": [],
+    "answer": "R·S={(1,3),(2,2)}；R²={(1,1),(1,2),(1,3)}。",
+    "analysis": "按关系复合定义逐项匹配中间元素。",
+    "tags": [
+      "关系",
+      "复合",
+      "填空",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "一-17"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0017",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "集合元素",
+      "子集"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "设 A={2,{a},3,4}，B={{a},3,4,1}，E 为全集，下列命题正确的是（ ）。",
+    "options": [
+      "A. {2}∈A",
+      "B. {a}⊆A",
+      "C. ∅⊆{{a}}⊆B⊆E",
+      "D. {{a},1,3,4}⊂B"
+    ],
+    "answer": "C",
+    "analysis": "∅ 是任意集合的子集；{{a}} 是 B 的子集，B 又是全集 E 的子集。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "二-1"
+    },
+    "reviewStatus": "已掌握",
+    "wrongCount": 0,
+    "correctCount": 1,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0018",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "自反性",
+      "对称性",
+      "反对称性"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 A={1,2,3}，A 上关系 R={(1,1),(2,2),(2,3),(3,2),(3,3)}，则 R 不具备（ ）。",
+    "options": [
+      "A. 自反性",
+      "B. 传递性",
+      "C. 对称性",
+      "D. 反对称性"
+    ],
+    "answer": "D",
+    "analysis": "因为 (2,3) 与 (3,2) 同时存在且 2≠3，所以不满足反对称性。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "二-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0019",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "偏序集",
+      "哈斯图",
+      "上界"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设半序集 (A,≤) 的哈斯图如题图，若 B={2,3,4,5}，则元素 6 为 B 的（ ）。",
+    "options": [
+      "A. 下界",
+      "B. 上界",
+      "C. 最小上界",
+      "D. 以上答案都不对"
+    ],
+    "answer": "B",
+    "analysis": "由哈斯图可判断 6 大于或等于 B 中所有元素，因此是上界。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "二-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "题图未完全嵌入题干"
+  },
+  {
+    "id": "DM0020",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "命题定义"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "下列语句中，哪一个是命题？",
+    "options": [
+      "A. 请把门关上",
+      "B. 地球外的星球上也有人",
+      "C. x+5>6",
+      "D. 下午有会吗？"
+    ],
+    "answer": "B",
+    "analysis": "命题是能判断真假的陈述句；B 虽未知真假，但有确定真假值。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 2,
+      "index": "二-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0021",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "解释",
+      "量词真值"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设解释 I 的论域 D={a,b}，且 P(a,a)=1, P(a,b)=0, P(b,a)=1, P(b,b)=0，则在解释 I 下取真值为 1 的公式是（ ）。",
+    "options": [
+      "A. ∃x∀yP(x,y)",
+      "B. ∀x∀yP(x,y)",
+      "C. ∀xP(x,x)",
+      "D. ∀x∃yP(x,y)"
+    ],
+    "answer": "D",
+    "analysis": "对 x=a 可取 y=a 为真；对 x=b 可取 y=a 为真，所以 ∀x∃yP(x,y) 为真。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 3,
+      "index": "二-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0022",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "图的度数列",
+      "握手定理"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "下列数列若表示简单图中各顶点的度，能画出图的是（ ）。",
+    "options": [
+      "A. (1,2,2,3,4,5)",
+      "B. (1,2,3,4,5,5)",
+      "C. (1,1,1,2,3)",
+      "D. (2,3,3,4,5,6)"
+    ],
+    "answer": "C",
+    "analysis": "度数和必须为偶数，且每个度不超过 n-1。C 满足基本条件并可图化。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 3,
+      "index": "二-6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0023",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "可满足性",
+      "量词公式"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 G=∃xP(x)，H=∀xP(x)，则一阶逻辑公式 G→H 是（ ）。",
+    "options": [
+      "A. 恒真的",
+      "B. 恒假的",
+      "C. 可满足的",
+      "D. 前束范式"
+    ],
+    "answer": "C",
+    "analysis": "当 P 对所有对象都真时公式为真；但存在反例使其为假，因此是可满足式。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 3,
+      "index": "二-7"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0024",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "逻辑蕴涵",
+      "等值判断"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 G=¬(P→Q)，H=P→(Q→¬P)，则 G 与 H 的关系是（ ）。",
+    "options": [
+      "A. G⇒H",
+      "B. H⇒G",
+      "C. G=H",
+      "D. 以上都不是"
+    ],
+    "answer": "A",
+    "analysis": "G 等价于 P∧¬Q；在该条件下 H 为真，因此 G 蕴涵 H。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 3,
+      "index": "二-8"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0025",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "差集"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 A、B 为集合，当（ ）时 A-B=B。",
+    "options": [
+      "A. A=B",
+      "B. A⊆B",
+      "C. B⊆A",
+      "D. A=B=∅"
+    ],
+    "answer": "D",
+    "analysis": "若 A=B=∅，则 A-B=∅=B；其他选项一般不成立。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 3,
+      "index": "二-9"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0026",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系性质"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 A={1,2,3,4}，A 上关系 R={(1,1),(2,3),(2,4),(3,4)}，则 R 具有（ ）。",
+    "options": [
+      "A. 自反性",
+      "B. 传递性",
+      "C. 对称性",
+      "D. 以上答案都不对"
+    ],
+    "answer": "B",
+    "analysis": "有 (2,3) 和 (3,4) 时也有 (2,4)，其它可导致传递条件的组合均满足。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "二-10"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0027",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "元素与子集"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "下列关于集合的表示中正确的是（ ）。",
+    "options": [
+      "A. {a}∈{a,b,c}",
+      "B. {a}⊆{a,b,c}",
+      "C. ∅∈{a,b,c}",
+      "D. {a,b}∈{a,b,c}"
+    ],
+    "answer": "B",
+    "analysis": "a 是集合元素，而 {a} 是由 a 构成的子集。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "二-11"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0028",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "全称量词"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "命题 ∀xG(x) 取真值 1 的充分必要条件是（ ）。",
+    "options": [
+      "A. 对任意 x，G(x) 都取真值 1",
+      "B. 有一个 x0，使 G(x0) 取真值 1",
+      "C. 有某些 x，使 G(x0) 取真值 1",
+      "D. 以上答案都不对"
+    ],
+    "answer": "A",
+    "analysis": "全称命题为真要求论域中每一个对象都满足谓词。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "二-12"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0029",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "平面图",
+      "欧拉公式"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "设 G 是连通平面图，有 5 个顶点，6 个面，则 G 的边数是（ ）。",
+    "options": [
+      "A. 9 条",
+      "B. 5 条",
+      "C. 6 条",
+      "D. 11 条"
+    ],
+    "answer": "A",
+    "analysis": "欧拉公式 n-m+r=2，故 m=n+r-2=5+6-2=9。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "二-13"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0030",
+    "chapter": "树",
+    "knowledgePoints": [
+      "完全图",
+      "树"
+    ],
+    "type": "choice",
+    "difficulty": "easy",
+    "title": "设 G 是 5 个顶点的完全图，则从 G 中删去多少条边可以得到树？",
+    "options": [
+      "A. 6",
+      "B. 5",
+      "C. 10",
+      "D. 4"
+    ],
+    "answer": "A",
+    "analysis": "K5 有 10 条边，5 个顶点的树有 4 条边，需删去 6 条。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "二-14"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0031",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "邻接矩阵",
+      "边数"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设图 G 的邻接矩阵如题图所示，则 G 的顶点数与边数分别为（ ）。",
+    "options": [
+      "A. 4,5",
+      "B. 5,6",
+      "C. 4,10",
+      "D. 5,8"
+    ],
+    "answer": "D",
+    "analysis": "矩阵为 5 阶，顶点数为 5；无向图边数为矩阵中 1 的个数之和的一半，得 8。",
+    "tags": [
+      "选择题",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "二-15"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": "题图未完全嵌入题干"
+  },
+  {
+    "id": "DM0032",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "偏序关系",
+      "哈斯图",
+      "上界下界"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "设 A={1,2,3,4,6,8,9,12}，R 为整除关系。画出半序集 (A,R) 的哈斯图；写出 B={3,6,9,12} 的上界、下界、最小上界、最大下界；写出 A 的最大元、最小元、极大元、极小元。",
+    "options": [],
+    "answer": "B 无上界、无最小上界；下界为 1、3，最大下界为 3。A 无最大元，最小元为 1，极大元为 8、9、12，极小元为 1。",
+    "analysis": "整除偏序中，x≤y 表示 x 能整除 y。上界必须被 B 中每个元素整除；下界必须整除 B 中每个元素。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": "公式或图形题，建议人工复核排版"
+  },
+  {
+    "id": "DM0033",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系图",
+      "关系矩阵"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设 A={1,2,3,4}，A 上关系 R={(x,y)|x,y∈A 且 x≥y}，画出 R 的关系图并写出关系矩阵。",
+    "options": [],
+    "answer": "R={(1,1),(2,1),(2,2),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3),(4,4)}。关系矩阵按 A=(1,2,3,4) 排列为 [[1,0,0,0],[1,1,0,0],[1,1,1,0],[1,1,1,1]]。",
+    "analysis": "x≥y 时从 x 指向 y，因此矩阵第 i 行第 j 列在 i≥j 时为 1。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "三-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": "公式或图形题，建议人工复核排版"
+  },
+  {
+    "id": "DM0034",
+    "chapter": "函数",
+    "knowledgePoints": [
+      "复合映射"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设 R 是实数集合，σ(x)=x+3，τ(x)=2x，φ(x)=x/4，求 σ∘τ、σ∘σ、σ∘φ、φ∘τ、σ∘φ∘τ。",
+    "options": [],
+    "answer": "σ∘τ=2x+3；σ∘σ=x+6；σ∘φ=x/4+3；φ∘τ=x/2；σ∘φ∘τ=x/2+3。",
+    "analysis": "复合映射按从右到左的顺序代入。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "三-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0035",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "解释",
+      "量词真值"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设解释 I：D={2,3}, a=3, b=2, f(2)=3, f(3)=2，P(2,2)=0, P(2,3)=0, P(3,2)=1, P(3,3)=1。求 P(a,f(a))∧P(b,f(b)) 与 ∀x∃yP(y,x)。",
+    "options": [],
+    "answer": "P(a,f(a))∧P(b,f(b))=0；∀x∃yP(y,x)=1。",
+    "analysis": "代入解释逐项计算即可。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 4,
+      "index": "三-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0036",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "整除关系",
+      "哈斯图",
+      "上界下界"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "设 A={1,2,4,6,8,12}，R 为 A 上整除关系。画哈斯图；写出最大元、最小元、极大元、极小元；写出 B={4,6,8,12} 的上界、下界、最小上界、最大下界。",
+    "options": [],
+    "answer": "无最大元，最小元为 1，极大元为 8、12，极小元为 1。B 无上界、无最小上界；下界为 1、2，最大下界为 2。",
+    "analysis": "整除偏序中先画覆盖关系，再判断上下界。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": "公式或图形题，建议人工复核排版"
+  },
+  {
+    "id": "DM0037",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "主析取范式"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设命题公式 G=¬(P→Q)∨(Q∧(¬P→R))，求 G 的主析取范式。",
+    "options": [],
+    "answer": "m3∨m4∨m5∨m6∨m7。",
+    "analysis": "先化去蕴含，再化为析取范式，最后补齐变量得到主析取范式。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0038",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "前束范式"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设一阶逻辑公式 G=(∀xP(x)∨∃yQ(y))→∀xR(x)，把 G 化成前束范式。",
+    "options": [],
+    "answer": "可化为 ∃x∀y∀z((¬P(x)∧¬Q(y))∨R(z))（等价形式可接受）。",
+    "analysis": "先消去蕴含并改名约束变元，再把量词依次移到公式前端。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-7"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式或图形题，建议人工复核排版"
+  },
+  {
+    "id": "DM0039",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "闭包",
+      "关系图"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设 R 是 A={a,b,c,d} 上的二元关系，R={(a,b),(b,a),(b,c),(c,d)}。求 r(R)、s(R)、t(R)，并画出关系图。",
+    "options": [],
+    "answer": "r(R)=R∪IA；s(R)=R∪R^{-1}；t(R)≈{(a,a),(a,b),(a,c),(a,d),(b,a),(b,b),(b,c),(b,d),(c,d)}。",
+    "analysis": "自反闭包补全所有 (x,x)；对称闭包补逆序对；传递闭包补所有可达对。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-9"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式或图形题，建议人工复核排版"
+  },
+  {
+    "id": "DM0040",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "主析取范式",
+      "等价判断"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "通过求主析取范式判断 G=(P∧Q)∨(¬P∧Q∧R) 与 H=(P∨(Q∧R))∧(Q∨(¬P∧R)) 是否等价。",
+    "options": [],
+    "answer": "二者主析取范式均为 m3∨m6∨m7，因此 G 与 H 等价。",
+    "analysis": "分别化为主析取范式，若小项编号完全相同则等价。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-11"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0041",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系矩阵",
+      "逆关系",
+      "复合关系"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "设 R={(a,a),(a,c),(b,c),(c,d)}, S={(a,b),(b,c),(b,d),(d,d)} 是 A={a,b,c,d} 上的关系。写出 R、S 的关系矩阵，并计算 R·S、R∪S、R^{-1}、S^{-1}·R^{-1}。",
+    "options": [],
+    "answer": "R·S={(a,b),(c,d)}；R∪S={(a,a),(a,b),(a,c),(b,c),(b,d),(c,d),(d,d)}；R^{-1}={(a,a),(c,a),(c,b),(d,c)}；S^{-1}·R^{-1}={(b,a),(d,c)}。",
+    "analysis": "按 A=(a,b,c,d) 排列写矩阵，复合关系逐项匹配中间元素。",
+    "tags": [
+      "calculation",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 5,
+      "index": "三-13"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0042",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "形式演绎",
+      "推理证明"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "利用形式演绎法证明：{P→Q, R→S, P∨R} 蕴涵 Q∨S。",
+    "options": [],
+    "answer": "可分类讨论 P∨R：若 P，则由 P→Q 得 Q，从而 Q∨S；若 R，则由 R→S 得 S，从而 Q∨S。",
+    "analysis": "使用析取消去和假言推理。",
+    "tags": [
+      "proof",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 6,
+      "index": "四-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0043",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "集合恒等式"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 A、B、C 为任意集合，证明：(A-B)-C = A-(B∪C)。",
+    "options": [],
+    "answer": "(A-B)-C=(A∩B^c)∩C^c=A∩(B^c∩C^c)=A∩(B∪C)^c=A-(B∪C)。",
+    "analysis": "使用差集定义和德摩根律。",
+    "tags": [
+      "proof",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 6,
+      "index": "四-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0044",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "形式演绎",
+      "推理证明"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "利用形式演绎法证明：{¬A∨B, ¬C→¬B, C→D} 蕴涵 A→D。",
+    "options": [],
+    "answer": "由 ¬A∨B 等价于 A→B；¬C→¬B 的逆否命题等价于 B→C；再由 C→D，故 A→D。",
+    "analysis": "使用等值转换、假言三段论或条件证明。",
+    "tags": [
+      "proof",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 6,
+      "index": "四-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0045",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "集合恒等式"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 A、B 为任意集合，证明：A-(A∩B)=(A∪B)-B。",
+    "options": [],
+    "answer": "两边都可化为 A∩B^c，即 A-B。",
+    "analysis": "左边 A∩(A∩B)^c=A∩(A^c∪B^c)=A∩B^c；右边 (A∪B)∩B^c=A∩B^c。",
+    "tags": [
+      "proof",
+      "有答案"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 6,
+      "index": "四-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0046",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "命题符号化",
+      "组合计数"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "某项工作需从 A、B、C、D 四人中派 2 人完成。条件：若 A 去，则 C 和 D 中要去 1 人；B 和 C 不能都去；若 C 去，则 D 留下。问有几种派法？如何派？",
+    "options": [],
+    "answer": "共有三种派法：B∧D，A∧C，A∧D。",
+    "analysis": "把“去/不去”符号化为命题变量，写出条件并化简。",
+    "tags": [
+      "calculation",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 14,
+      "index": "A-一"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0047",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "谓词符号化",
+      "形式证明"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "在谓词逻辑中构造推理证明：某学术会议的每个成员都是专家并且是工人，有些成员是青年人，所以有些成员是青年专家。",
+    "options": [],
+    "answer": "设 P(x)：x 是成员，E(x)：x 是专家，W(x)：x 是工人，Y(x)：x 是青年人。由存在实例化取青年成员 c，再由全称实例化得 c 是专家，推出 ∃x(Y(x)∧E(x))。",
+    "analysis": "使用 ES、US、合取引入和存在概括。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 14,
+      "index": "A-二"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式由转换文本补正，建议复核"
+  },
+  {
+    "id": "DM0048",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "集合证明"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 A、B、C 是三个集合，证明题：根据题中给出的集合包含关系推出相应结论。",
+    "options": [],
+    "answer": "原文公式抽取不完整，需按源文件复核。",
+    "analysis": "该题来自转换后的 Word，符号缺失较多，已标记待审核。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 15,
+      "index": "A-三"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式由转换文本补正，建议复核"
+  },
+  {
+    "id": "DM0049",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "闭包"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "设 A={1,2,3,4,5}，R={<2,1>,<2,5>,<2,4>,<3,4>,<4,4>,<5,2>}，求 r(R)、s(R)、t(R)。",
+    "options": [],
+    "answer": "r(R)=R∪IA；s(R)=R∪R^{-1}；t(R)={ <2,1>,<2,5>,<2,4>,<3,4>,<4,4>,<5,2>,<2,2>,<5,1>,<5,4>,<5,5> }。",
+    "analysis": "自反闭包加恒等关系，对称闭包加逆关系，传递闭包按关系幂求并。",
+    "tags": [
+      "calculation",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 15,
+      "index": "A-四"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0050",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "关系闭包",
+      "对称性"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "R 是非空集合 A 上的二元关系。若 R 是对称的，证明 r(R) 和 t(R) 也是对称的。",
+    "options": [],
+    "answer": "r(R)=R∪IA，对称关系的并仍对称；若 R 对称，则每个 R^n 对称，故 t(R)=∪R^n 对称。",
+    "analysis": "分别证明自反闭包、传递闭包保持对称性。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 16,
+      "index": "A-五"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0051",
+    "chapter": "函数",
+    "knowledgePoints": [
+      "反函数",
+      "双射"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "若 f:A→B 是双射，证明 f^{-1}:B→A 也是双射。",
+    "options": [],
+    "answer": "f 双射保证每个 y∈B 唯一对应 x∈A，因此 f^{-1} 是函数且既单射又满射。",
+    "analysis": "用单射和满射定义证明。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 16,
+      "index": "A-六"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0052",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "半群",
+      "幂等元"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 <S,*> 是一个半群，如果 S 是有限集，证明必存在 a∈S，使得 a*a=a。",
+    "options": [],
+    "answer": "原文答案给出利用有限性和元素幂序列重复构造幂等元的证明。",
+    "analysis": "注意：该结论在一般有限半群中需要更严谨表述；建议考试时按教材定理写。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 17,
+      "index": "A-七"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式由转换文本补正，建议复核"
+  },
+  {
+    "id": "DM0053",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "平面图",
+      "欧拉公式"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "若 G 是连通平面图，且每个面的次数至少为 l(l≥3)，证明边数 m 与结点数 n 满足相应不等式。",
+    "options": [],
+    "answer": "由 2m≥lr 与欧拉公式 n-m+r=2 可推出 m≤l(n-2)/(l-2) 的常见形式。",
+    "analysis": "源文档公式缺失，已按平面图常见定理补全。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 17,
+      "index": "A-八(1)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "公式由转换文本补正，建议复核"
+  },
+  {
+    "id": "DM0054",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "对偶图",
+      "欧拉公式"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设平面图 G=<V,E,F> 是自对偶图，证明 |E|=2(|V|-1)。",
+    "options": [],
+    "answer": "自对偶图有 |F|=|V|，代入欧拉公式 |V|-|E|+|F|=2，得 |E|=2(|V|-1)。",
+    "analysis": "关键是使用自对偶图 |V|=|F|。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 17,
+      "index": "A-八(2)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0055",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "推理证明"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "证明 (P∨Q)∧(P→R)∧(Q→S) 蕴涵 S∨R。",
+    "options": [],
+    "answer": "由 P∨Q 分情况：若 P，则 R，得 S∨R；若 Q，则 S，得 S∨R。",
+    "analysis": "析取消去和假言推理。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 18,
+      "index": "B-一"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0056",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "谓词推理"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "每个考生或者勤奋或者聪明，所有勤奋的人都将有所作为，但并非所有考生都将有所作为，所以，一定有些考生是聪明的。请用推理理论证明。",
+    "options": [],
+    "answer": "取一名“考生且无所作为”的对象 a，由“考生→勤奋∨聪明”和“勤奋→有所作为”推出 a 不能勤奋，故 a 聪明，得 ∃x(P(x)∧B(x))。",
+    "analysis": "使用存在实例化、全称实例化、否定推理。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 18,
+      "index": "B-二"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0057",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "容斥原理"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "某班 25 名学生，14 人会篮球，12 人会排球，6 人会篮球和排球，5 人会篮球和网球，2 人会三种球，且 6 个会网球的人都会打另外一种球，求不会打这三种球的人数。",
+    "options": [],
+    "answer": "5 人。",
+    "analysis": "先由 |(A∪C)∩B|=6 求出 |A∩B|=3，再用三集合容斥得会至少一种球的人数为 20。",
+    "tags": [
+      "calculation",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 19,
+      "index": "B-三"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0058",
+    "chapter": "集合论",
+    "knowledgePoints": [
+      "划分",
+      "小项"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 A1、A2、A3 是全集 U 的子集。形如 Ai 的集合称为小项。证明所有非空小项构成 U 的一个划分。",
+    "options": [],
+    "answer": "任意元素对每个 Ai 必在 Ai 或其补集中，因此属于某个小项；不同小项至少在一个因子上互补，故互不相交。",
+    "analysis": "证明覆盖性与互斥性即可。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 19,
+      "index": "B-四"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0059",
+    "chapter": "二元关系",
+    "knowledgePoints": [
+      "传递关系",
+      "关系复合"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 R 是 A 上的二元关系，证明：R 是传递的当且仅当 R∘R⊆R。",
+    "options": [],
+    "answer": "若 R 传递，则 xRz 且 zRy 推出 xRy，所以 R∘R⊆R；反之由包含关系直接得到传递性。",
+    "analysis": "关系复合的定义正对应传递条件。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 20,
+      "index": "B-五"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0060",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "欧拉公式",
+      "平面图"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "若 G 为连通平面图，证明 n-m+r=2，其中 n、m、r 分别为结点数、边数和面数。",
+    "options": [],
+    "answer": "可对边数作归纳：删边分割边和非割边两种情况讨论，保持 n-m+r 不变。",
+    "analysis": "平面图欧拉公式的标准证明。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 20,
+      "index": "B-六"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0061",
+    "chapter": "函数",
+    "knowledgePoints": [
+      "函数复合"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 g:A→B，f:B→C，证明 f∘g 是 A 到 C 的函数，且对任意 x∈A，(f∘g)(x)=f(g(x))。",
+    "options": [],
+    "answer": "由 g 的存在唯一性得到 g(x)∈B，再由 f 得唯一 f(g(x))∈C，故复合是函数。",
+    "analysis": "函数复合的定义。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 21,
+      "index": "B-七"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0062",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "子群",
+      "等价关系",
+      "陪集"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "设 <H,*> 是 <G,*> 的子群，定义 R={(a,b)|a,b∈G 且 a^{-1}*b∈H}，证明 R 是 G 上的等价关系，且 [a]_R=aH。",
+    "options": [],
+    "answer": "自反：a^{-1}a=e∈H；对称：若 a^{-1}b∈H，则其逆 b^{-1}a∈H；传递：由 H 封闭性得 a^{-1}c∈H。等价类即左陪集 aH。",
+    "analysis": "这是子群陪集与等价关系的经典证明。",
+    "tags": [
+      "proof",
+      "有答案",
+      "A/B卷"
+    ],
+    "source": {
+      "name": "离散数学试题及答案(2).doc",
+      "page": 22,
+      "index": "B-八"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0063",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "自然语言符号化"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "medium",
+    "title": "将命题符号化：（1）火车都比汽车快；（2）有的火车比有的汽车快；（3）不存在比所有火车都快的汽车；（4）说凡是汽车就比火车慢是不对的。",
+    "options": [],
+    "answer": "可设 F(x): x 是火车，G(y): y 是汽车，L(x,y): x 比 y 快。分别写为：∀x(F(x)→∀y(G(y)→L(x,y)))；∃x∃y(F(x)∧G(y)∧L(x,y))；¬∃y(G(y)∧∀x(F(x)→L(y,x)))；¬∀y(G(y)→∀x(F(x)→L(x,y)))。",
+    "analysis": "先确定谓词，再注意“所有/有的/不存在/不是所有”的量词。",
+    "tags": [
+      "作业",
+      "谓词逻辑"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 1,
+      "index": "3.11"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "手写答案可见，但建议核对谓词方向。"
+  },
+  {
+    "id": "DM0064",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "有限论域",
+      "量词消除"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "medium",
+    "title": "设个体域 D={a,b,c}，消去公式中的量词：（1）∀xF(x)→∀yG(y)；（2）∀x(F(x,y)→∃yG(y))。",
+    "options": [],
+    "answer": "（1）(F(a)∧F(b)∧F(c))→(G(a)∧G(b)∧G(c))。 （2）需注意自由/约束变量，按题面应复核；若为 ∀x(F(x,y)→∃zG(z))，则展开为 ∧_{x∈{a,b,c}}(F(x,y)→(G(a)∨G(b)∨G(c)))。",
+    "analysis": "有限论域中，全称量词展开为合取，存在量词展开为析取。",
+    "tags": [
+      "作业",
+      "量词消除"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 1,
+      "index": "3.24"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "题面中变量 y 可能存在重名/遮蔽，已标记待复核。"
+  },
+  {
+    "id": "DM0065",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "解释",
+      "公式真值"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "给定解释 I：个体域 D={3,4}，f(x) 为某映射，F(x,y) 的真值表满足 F(3,3)=F(4,4)=0，F(3,4)=F(4,3)=1。求若干公式在 I 下的真值。",
+    "options": [],
+    "answer": "根据图中手写过程：部分公式计算结果为 1、0 等；完整题面需复核原 PDF。",
+    "analysis": "逐个展开量词，并代入 F 的真值表判断。",
+    "tags": [
+      "作业",
+      "谓词逻辑",
+      "真值"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 1,
+      "index": "3.27"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "扫描页面显示题面和手写答案，局部被缩小，需人工核对完整公式。"
+  },
+  {
+    "id": "DM0066",
+    "chapter": "谓词逻辑",
+    "knowledgePoints": [
+      "前束范式"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "求下列公式的前束范式：（1）F(x)∧G(x)→L(x,y)；（2）∀x1(F(x1)→G(x1,x2))→(∃x2H(x2)→∃x3L(x2,x3))；（3）∃x1F(x1,x2)→(H(x1)→¬∃x2G(x1,x2))。",
+    "options": [],
+    "answer": "按手写答案，需要先改名约束变元，再消去蕴含、移动量词。完整前束式建议人工复核。",
+    "analysis": "前束范式步骤：消去蕴含→否定内移→约束变元改名→量词前移。",
+    "tags": [
+      "作业",
+      "前束范式"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 1,
+      "index": "3.30"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "手写答案复杂，已作为待审核题。"
+  },
+  {
+    "id": "DM0067",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "主析取范式"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "求 (P∨(Q∧R))→(P∨Q∨R) 的主析取范式。",
+    "options": [],
+    "answer": "该式为永真式，主析取范式为 m0∨m1∨m2∨m3∨m4∨m5∨m6∨m7。",
+    "analysis": "因为 P∨(Q∧R) 蕴涵 P∨Q∨R 恒成立。",
+    "tags": [
+      "作业",
+      "命题逻辑",
+      "范式"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 2,
+      "index": "2.16(3)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0068",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "主析取范式",
+      "主合取范式"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "求 (P→Q)∧(Q→R) 的主析取范式和主合取范式。",
+    "options": [],
+    "answer": "主析取范式：m0∨m1∨m3∨m7；主合取范式：M2∧M4∧M5∧M6。",
+    "analysis": "先化为 (¬P∨Q)∧(¬Q∨R)，列真值表得到为真的小项和为假的大项。",
+    "tags": [
+      "作业",
+      "命题逻辑",
+      "范式"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 2,
+      "index": "2.28(2)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0069",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "等值判断",
+      "主析取范式"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "判断 (P→Q)→R 与 (P∧Q)→R 是否等价。",
+    "options": [],
+    "answer": "不等价。",
+    "analysis": "两式主析取范式不同：手写答案给出小项集合不同，因此不等价。也可取 P=0,Q=0,R=0 作为反例。",
+    "tags": [
+      "作业",
+      "命题逻辑",
+      "等价判断"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 2,
+      "index": "2.30(3)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0070",
+    "chapter": "命题逻辑",
+    "knowledgePoints": [
+      "形式证明"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "证明：由前提 P∨Q，P→R，Q→S 推出 R∨S。",
+    "options": [],
+    "answer": "若 P 成立，由 P→R 得 R，从而 R∨S；若 Q 成立，由 Q→S 得 S，从而 R∨S。",
+    "analysis": "这是析取消去法的标准应用。",
+    "tags": [
+      "作业",
+      "命题逻辑",
+      "证明"
+    ],
+    "source": {
+      "name": "离散作业题目.pdf",
+      "page": 2,
+      "index": "2.38(3)"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0071",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "环",
+      "化简"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设 <R,+,·> 是环，a,b 为环中任意元素，化简 (a-b)^2。",
+    "options": [],
+    "answer": "一般情况下 (a-b)^2=a^2-ab-ba+b^2；若乘法交换则为 a^2-2ab+b^2。",
+    "analysis": "环中乘法不一定交换，不能直接写成 a^2-2ab+b^2。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 1,
+      "index": "一-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0072",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "避圈法"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "避圈法是指什么？",
+    "options": [],
+    "answer": "避圈法通常指构造生成树或最小生成树时，选择边但避免形成回路的方法。",
+    "analysis": "Kruskal 算法就是典型避圈法。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 1,
+      "index": "一-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0073",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "欧拉回路"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "欧拉回路是指什么？",
+    "options": [],
+    "answer": "经过图中每条边一次且仅一次并回到起点的回路。",
+    "analysis": "注意欧拉回路强调“边不重复”。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0074",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "哈密顿回路"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "半哈密顿回路是指什么？",
+    "options": [],
+    "answer": "通常指经过每个顶点一次的通路/相关概念，题面需按教材定义复核。",
+    "analysis": "哈密顿类概念强调顶点。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "扫描件题面，建议核对"
+  },
+  {
+    "id": "DM0075",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "破圈法"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "破圈法是指什么？",
+    "options": [],
+    "answer": "从连通带权图中不断删去圈中权值最大的边且保持连通，直到得到生成树的方法。",
+    "analysis": "破圈法常用于求最小生成树。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0076",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "极大平面图"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "极大平面图的充分必要条件是什么？",
+    "options": [],
+    "answer": "通常为简单平面图且每个面都是三角形（n≥3）。",
+    "analysis": "极大平面图再加任何边都会破坏平面性。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0077",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "布尔代数",
+      "原子"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "4 阶布尔代数有几个原子？",
+    "options": [],
+    "answer": "若“4 阶”表示有 4 个元素，则有 2 个原子。",
+    "analysis": "有限布尔代数有 2^n 个元素时有 n 个原子。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-7"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "扫描件题面，建议核对"
+  },
+  {
+    "id": "DM0078",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "置换",
+      "逆置换",
+      "复合"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "给定置换 σ=(1 2 3 4 5 / 2 3 4 1 5), τ=(1 2 3 4 5 / 3 2 1 4 5)，求 σ^{-1} 和 τ∘σ。",
+    "options": [],
+    "answer": "σ^{-1}=(1 2 3 4 5 / 4 1 2 3 5)。τ∘σ 需按从右到左复合，结果可由逐点代入得到。",
+    "analysis": "先反向读取 σ 的映射；复合时先作用 σ 再作用 τ。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-8"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0079",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "无零因子环"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "什么是无零因子环？",
+    "options": [],
+    "answer": "若环中 a·b=0 蕴涵 a=0 或 b=0，则称为无零因子环。",
+    "analysis": "零因子是两个非零元素相乘为零的现象。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 2,
+      "index": "一-9"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0080",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "交换律",
+      "结合律"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "如果代数系统满足交换律，下面哪一个不一定真？",
+    "options": [
+      "A. abc=bac",
+      "B. abc=c(ba)",
+      "C. abc=c(ab)",
+      "D. abc=acb"
+    ],
+    "answer": "B",
+    "analysis": "仅有交换律不保证结合律，因此涉及括号改变的等式不一定成立。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 3,
+      "index": "二-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0081",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "有理数运算",
+      "代数结构性质"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "设 Q 为有理数集合，对任意 x,y∈Q，定义 x*y=x-y。则 * 不满足或不存在的是（ ）。",
+    "options": [
+      "A. 结合律",
+      "B. 吸收律",
+      "C. 交换律",
+      "D. 单位元"
+    ],
+    "answer": "A/C/D",
+    "analysis": "该运算一般不交换、不结合，也不存在双侧单位元；原题可能为单选，需复核选项意图。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 3,
+      "index": "二-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "扫描件题面，建议核对"
+  },
+  {
+    "id": "DM0082",
+    "chapter": "代数系统",
+    "knowledgePoints": [
+      "群",
+      "偶数阶群"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "证明偶数阶群必含 2 阶元。",
+    "options": [],
+    "answer": "由元素与其逆元配对。除单位元外，若没有 2 阶元，则非单位元素可两两配对，导致群阶为奇数，矛盾。",
+    "analysis": "这是群论中的经典结论。",
+    "tags": [
+      "期末试卷",
+      "2016-2017"
+    ],
+    "source": {
+      "name": "暨南大学《离散数学》2016-2017学年第一学期期末试卷A卷(1).pdf",
+      "page": 3,
+      "index": "三-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0083",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "树",
+      "二部图"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "证明：树都是二部图。",
+    "options": [],
+    "answer": "树中没有奇长度回路。任选根，按到根的距离奇偶将顶点分成两部分，相邻顶点距离奇偶相反，故为二部图。",
+    "analysis": "二部图判定：不存在奇回路。树无回路，所以一定无奇回路。",
+    "tags": [
+      "图论",
+      "树",
+      "证明"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0084",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "树",
+      "欧拉图"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "证明：除平凡树外，树都不是欧拉图。",
+    "options": [],
+    "answer": "非平凡树至少有叶点，叶点度为 1。欧拉图要求所有顶点度数为偶数，因此非平凡树不是欧拉图。",
+    "analysis": "欧拉回路存在的必要条件是所有顶点度为偶数。",
+    "tags": [
+      "图论",
+      "树",
+      "欧拉图"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0085",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "树",
+      "哈密顿图"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "证明：除平凡树外，树都不是哈密顿图。",
+    "options": [],
+    "answer": "非平凡树有割边或叶点，无法形成经过所有顶点一次并回到起点的哈密顿回路。",
+    "analysis": "哈密顿回路要求存在回路，而树无回路。",
+    "tags": [
+      "图论",
+      "树",
+      "哈密顿图"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0086",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "树",
+      "平面图"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "证明：树都是平面图。",
+    "options": [],
+    "answer": "树无回路，可从一个顶点开始逐边嵌入平面，每次添加叶边不会产生交叉，因此树可平面嵌入。",
+    "analysis": "也可由树不含 K5 或 K3,3 的同胚子图说明。",
+    "tags": [
+      "图论",
+      "树",
+      "平面图"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0087",
+    "chapter": "树",
+    "knowledgePoints": [
+      "完全二部图",
+      "树"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "medium",
+    "title": "哪些完全二部图是树？",
+    "options": [],
+    "answer": "只有 K_{1,r} 或 K_{r,1} 是树。",
+    "analysis": "完全二部图 K_{m,n} 的边数为 mn，顶点数为 m+n。树要求 mn=m+n-1，即 (m-1)(n-1)=0。",
+    "tags": [
+      "图论",
+      "完全二部图",
+      "树"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0088",
+    "chapter": "树",
+    "knowledgePoints": [
+      "完全图",
+      "生成树"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "easy",
+    "title": "无向完全图 K_n(n≥1) 中有树吗？",
+    "options": [],
+    "answer": "K1 或 K2 本身就是树；一般 K_n(n≥2) 含生成树。若问“完全图本身是否为树”，只有 K1、K2。",
+    "analysis": "题面“有树吗”可能指子图或本身，需按课堂语境判断。",
+    "tags": [
+      "图论",
+      "完全图",
+      "树"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 1,
+      "index": "7.6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "题意可能有歧义。"
+  },
+  {
+    "id": "DM0089",
+    "chapter": "树",
+    "knowledgePoints": [
+      "树的度数",
+      "握手定理"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "树 T 有 2 个 4 度顶点、3 个 3 度顶点，其余顶点全是树叶，问 T 有几片树叶？",
+    "options": [],
+    "answer": "9 片树叶。",
+    "analysis": "设叶数为 t，则顶点数 n=2+3+t=5+t，边数 m=n-1=4+t。握手定理：2m=2·4+3·3+t，解得 t=9。",
+    "tags": [
+      "图论",
+      "树",
+      "度数"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 2,
+      "index": "7.8"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0090",
+    "chapter": "树",
+    "knowledgePoints": [
+      "树的度数",
+      "握手定理"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "无向树 T 有 7 片树叶、3 个 3 度顶点，其余顶点度数均为 4，求 T 的阶数 n。",
+    "options": [],
+    "answer": "n=11。",
+    "analysis": "设 4 度顶点数为 x，则 n=7+3+x，m=n-1。由 2m=7·1+3·3+4x 解得 x=1，所以 n=11。",
+    "tags": [
+      "图论",
+      "树",
+      "度数"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 2,
+      "index": "7.9"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0091",
+    "chapter": "树",
+    "knowledgePoints": [
+      "树的叶数公式"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "无向树 T 中有 n_i 个度数为 i 的顶点，i=2,3,...,k，其余顶点全为树叶，问 T 有几片树叶？",
+    "options": [],
+    "answer": "叶数 t = 2 + Σ_{i=2}^k (i-2)n_i。",
+    "analysis": "由握手定理和 m=n-1 推导。",
+    "tags": [
+      "图论",
+      "树",
+      "公式"
+    ],
+    "source": {
+      "name": "6.1.pdf",
+      "page": 3,
+      "index": "7.10"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0092",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "正则图",
+      "握手定理"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "n 阶 k-正则图 G 的边数 m 等于多少？",
+    "options": [],
+    "answer": "m=nk/2。",
+    "analysis": "所有顶点度数和为 nk，等于 2m。",
+    "tags": [
+      "图论",
+      "正则图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 1,
+      "index": "填空-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0093",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "圈图",
+      "点连通度"
+    ],
+    "type": "blank",
+    "difficulty": "easy",
+    "title": "G 为无向 n(n≥3) 阶圈，则 κ(G)=多少？",
+    "options": [],
+    "answer": "κ(G)=2。",
+    "analysis": "删掉任意一个顶点仍连通，删掉两个合适顶点可使其不连通。",
+    "tags": [
+      "图论",
+      "连通度"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 1,
+      "index": "填空-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0094",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "完全二部图",
+      "哈密顿图"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设完全二部图 K_{r,s} 为哈密顿图，则 r,s 应满足什么条件？",
+    "options": [],
+    "answer": "r=s≥2。",
+    "analysis": "哈密顿圈在二部图两部分中交替经过顶点，所以两部分顶点数必须相等且至少为 2。",
+    "tags": [
+      "图论",
+      "哈密顿图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 1,
+      "index": "填空-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0095",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "平面图",
+      "连通分支",
+      "欧拉公式"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "设 G 由 3 个连通分支 K1、K2、K3 组成且为平面图，问 G 共有几个面？",
+    "options": [],
+    "answer": "2 个面。",
+    "analysis": "非连通平面图欧拉公式为 n-m+r=c+1。K1,K2,K3 的 n=1+2+3=6，m=0+1+3=4，c=3，故 r=2。",
+    "tags": [
+      "图论",
+      "平面图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 1,
+      "index": "填空-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0096",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "欧拉图",
+      "完全图"
+    ],
+    "type": "blank",
+    "difficulty": "hard",
+    "title": "在完全图 K_{2k}(k≥2) 上至少加多少条边，才能使得图为欧拉图？",
+    "options": [],
+    "answer": "2k-1 条。",
+    "analysis": "K_{2k} 中每个顶点度为 2k-1（奇数）。要使所有顶点度为偶数，可添加一组使所有顶点奇偶性翻转的边，至少形成完美匹配，需要 k 条“新连接”；若按多重边补齐，课堂答案记为 2k-1，需结合题意复核。",
+    "tags": [
+      "图论",
+      "欧拉图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 1,
+      "index": "填空-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "原图答案处为“2k-1”，但若允许添加重边/简单图语境不同，需复核。"
+  },
+  {
+    "id": "DM0097",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "图的度数列",
+      "简单图"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "判断哪些序列可以构成简单图：(1)(1,1,1,2,3)；(2)(1,3,3,3)；(3)(2,2,4)；(4)(1,3,3,4,5,6,6)。",
+    "options": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)"
+    ],
+    "answer": "(1) 可以；其余不可以。",
+    "analysis": "用握手定理、最大度不超过 n-1，以及 Havel-Hakimi 方法判断。",
+    "tags": [
+      "图论",
+      "简单图",
+      "度数列"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 2,
+      "index": "二"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0098",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "无向简单图",
+      "非同构"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "hard",
+    "title": "画出 5 阶 3 条边的所有非同构无向简单图。",
+    "options": [],
+    "answer": "共有 4 类，度数分配可为 0,1,1,1,3；0,1,1,2,2；1,1,1,1,2；0,0,2,2,2。",
+    "analysis": "3 条边总度数为 6，把 6 分配给 5 个顶点并筛去不可图化/同构重复。",
+    "tags": [
+      "图论",
+      "非同构图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 3,
+      "index": "三"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0099",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "邻接矩阵",
+      "通路数",
+      "连通性"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "有向图 D 如图所示，求邻接矩阵 A；求 D 中 v1 到 v4 长度为 2 的通路数；求 D 中 v1 到自身长度为 3 的回路数；判断 D 是哪类连通图。",
+    "options": [],
+    "answer": "从图中答案可见 D 为单侧连通图；具体矩阵和通路数需按图核对。",
+    "analysis": "邻接矩阵 A 的 k 次幂中 (i,j) 元表示 vi 到 vj 长度为 k 的通路条数。",
+    "tags": [
+      "图论",
+      "有向图",
+      "邻接矩阵"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 3,
+      "index": "四"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "题图需要人工核对后补全精确矩阵。"
+  },
+  {
+    "id": "DM0100",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "完全图",
+      "欧拉图",
+      "哈密顿图"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "medium",
+    "title": "n 取何值时，无向完全图 K_n 是欧拉图、汉密尔顿图？",
+    "options": [],
+    "answer": "K_n 是欧拉图当且仅当 n 为奇数且 n≥3；K_n 是汉密尔顿图当且仅当 n≥3。",
+    "analysis": "K_n 中每个顶点度为 n-1；欧拉图要求所有度为偶数，哈密顿图要求 n≥3。",
+    "tags": [
+      "图论",
+      "完全图",
+      "欧拉图",
+      "哈密顿图"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 4,
+      "index": "五-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0101",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "欧拉图",
+      "割边"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "若无向图是欧拉图，它是否存在割边？为什么？",
+    "options": [],
+    "answer": "不存在割边。",
+    "analysis": "若存在割边 e，欧拉回路经过 e 后必须再经过 e 才能回到原分支，与每条边只走一次矛盾；也可用连通分支和握手定理反证。",
+    "tags": [
+      "图论",
+      "欧拉图",
+      "割边"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 4,
+      "index": "五-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0102",
+    "chapter": "图论基础",
+    "knowledgePoints": [
+      "哈密顿图",
+      "割点"
+    ],
+    "type": "proof",
+    "difficulty": "medium",
+    "title": "有割点的连通图是否能是汉密尔顿图？为什么？",
+    "options": [],
+    "answer": "不能。",
+    "analysis": "若有哈密顿回路，删去任一顶点后剩余图仍连通；而割点删除后会使连通图分裂，矛盾。",
+    "tags": [
+      "图论",
+      "哈密顿图",
+      "割点"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 4,
+      "index": "五-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0103",
+    "chapter": "树",
+    "knowledgePoints": [
+      "最优二叉树",
+      "哈夫曼编码"
+    ],
+    "type": "calculation",
+    "difficulty": "hard",
+    "title": "给定权 1,2,4,6,9,12,15,18，构造一棵最优二叉树，求对应的二元前缀码。",
+    "options": [],
+    "answer": "可用 Huffman 算法反复合并两个最小权，得到一组最优前缀码；具体码字不唯一。",
+    "analysis": "Huffman 编码的左右 0/1 分配不唯一，但加权路径长度最小。",
+    "tags": [
+      "图论",
+      "树",
+      "Huffman"
+    ],
+    "source": {
+      "name": "6.8.pdf",
+      "page": 5,
+      "index": "六"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": true,
+    "extractionNote": "题目来自扫描图，未给出完整标准码字。"
+  },
+  {
+    "id": "DM0104",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "布尔代数",
+      "补元"
+    ],
+    "type": "judge",
+    "difficulty": "easy",
+    "title": "在布尔代数中，对任意元素 x，都有 x + x' = 1 且 x·x' = 0。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "analysis": "布尔代数中每个元素都有补元 x'，元素与其补元的并为最大元 1，交为最小元 0。",
+    "tags": [
+      "布尔代数",
+      "判断题",
+      "补元"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-1"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0105",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "主析取范式",
+      "小项"
+    ],
+    "type": "choice",
+    "difficulty": "medium",
+    "title": "关于主析取范式，下列说法正确的是（ ）。",
+    "options": [
+      "A. 由若干大项的合取构成",
+      "B. 由若干小项的析取构成",
+      "C. 只能表示恒假函数",
+      "D. 与变量顺序无关"
+    ],
+    "answer": "B",
+    "analysis": "主析取范式由使函数取 1 的小项进行析取构成；小项编号与变量顺序有关。",
+    "tags": [
+      "布尔函数",
+      "范式",
+      "选择题"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-2"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0106",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "主合取范式",
+      "大项"
+    ],
+    "type": "blank",
+    "difficulty": "medium",
+    "title": "主合取范式由若干个 ______ 的合取构成。",
+    "options": [],
+    "answer": "大项",
+    "analysis": "主合取范式对应函数取 0 的赋值，由相关大项进行合取构成。",
+    "tags": [
+      "布尔函数",
+      "填空题"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-3"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0107",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "吸收律"
+    ],
+    "type": "calculation",
+    "difficulty": "medium",
+    "title": "化简布尔表达式 x + xy。",
+    "options": [],
+    "answer": "x",
+    "analysis": "由吸收律 x + xy = x，可直接化简为 x。也可理解为当 x=1 时结果为 1，当 x=0 时 xy=0。",
+    "tags": [
+      "布尔代数",
+      "计算题",
+      "吸收律"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-4"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0108",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "格",
+      "上确界",
+      "下确界"
+    ],
+    "type": "shortAnswer",
+    "difficulty": "medium",
+    "title": "简述偏序集成为格的条件。",
+    "options": [],
+    "answer": "偏序集中任意两个元素都存在最小上界和最大下界。",
+    "analysis": "格建立在偏序集之上。若任意 a,b 都有并 a∨b（最小上界）和交 a∧b（最大下界），则该偏序集是格。",
+    "tags": [
+      "格",
+      "简答题"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-5"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  },
+  {
+    "id": "DM0109",
+    "chapter": "格与布尔代数",
+    "knowledgePoints": [
+      "有补格",
+      "布尔代数"
+    ],
+    "type": "proof",
+    "difficulty": "hard",
+    "title": "说明有限布尔代数中每个元素的补元是唯一的。",
+    "options": [],
+    "answer": "设 b 和 c 都是 a 的补元，则 b=b·1=b·(a+c)=(b·a)+(b·c)=0+(b·c)=b·c；同理 c=c·1=c·(a+b)=(c·a)+(c·b)=0+(b·c)=b·c，所以 b=c。",
+    "analysis": "利用布尔代数的分配律、补元定义和零元性质，可以证明任意两个补元相等，因此补元唯一。",
+    "tags": [
+      "布尔代数",
+      "证明题",
+      "补元唯一性"
+    ],
+    "source": {
+      "name": "系统示例题",
+      "page": null,
+      "index": "BA-6"
+    },
+    "reviewStatus": "待复习",
+    "wrongCount": 0,
+    "correctCount": 0,
+    "needsReview": false,
+    "extractionNote": ""
+  }
+]

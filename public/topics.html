@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>离散数学期末复习 - 知识点</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-title">离散数学期末复习</span>
+        <span class="brand-subtitle">按章节复盘核心概念</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="topics.html">知识点</a>
+        <a href="questions.html">题库</a>
+        <a href="mistakes.html">错题本</a>
+        <a href="plan.html">复习计划</a>
+        <a href="quiz.html">测验</a>
+        <a href="graph.html">知识图谱</a>
+        <a href="login.html">登录</a>
+      </nav>
+      <span class="tag" data-user-status>读取中</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-header">
+      <div>
+        <h1 class="page-title">知识点复盘</h1>
+        <p class="page-desc">左侧选择章节，右侧查看定义、公式、题型、易错点和记忆口诀。</p>
+      </div>
+      <div class="field topic-search">
+        <label for="topicSearch">搜索知识点</label>
+        <input id="topicSearch" placeholder="例如：欧拉图、量词、双射、主析取范式">
+      </div>
+    </section>
+
+    <section class="topic-layout">
+      <aside class="card chapter-panel" aria-label="章节目录">
+        <div class="chapter-panel-head">
+          <h2 class="card-title">章节目录</h2>
+          <span class="tag" id="masteredSummary">0 / 0</span>
+        </div>
+        <div class="chapter-list" id="chapterList"></div>
+      </aside>
+
+      <section class="topic-content">
+        <div class="card topic-chapter-card">
+          <div>
+            <p class="muted" id="chapterKicker">当前章节</p>
+            <h2 class="topic-chapter-title" id="chapterTitle">加载中</h2>
+            <p class="page-desc" id="chapterDesc">正在读取知识点数据。</p>
+          </div>
+          <div class="topic-progress-box">
+            <span class="tag primary" id="chapterProgressText">0 / 0 已掌握</span>
+            <div class="progress" aria-label="当前章节掌握进度">
+              <span id="chapterProgressBar" style="width: 0%"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid topic-card-list" id="topicCards"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/topics.js"></script>
+</body>
+</html>

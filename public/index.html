@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>离散数学期末复习 - 首页</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-title">离散数学期末复习</span>
+          <span class="brand-subtitle">知识复盘 · 刷题训练 · 考前冲刺</span>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <a href="index.html">首页</a>
+          <a href="topics.html">知识点</a>
+          <a href="questions.html">题库</a>
+          <a href="mistakes.html">错题本</a>
+          <a href="plan.html">复习计划</a>
+          <a href="quiz.html">测验</a>
+          <a href="graph.html">知识图谱</a>
+          <a href="login.html">登录</a>
+        </nav>
+        <span class="tag" data-user-status>读取中</span>
+      </div>
+    </header>
+
+    <main class="main" id="dashboardRoot">
+      <section class="page-header">
+        <div>
+          <h1 class="page-title">复习总览</h1>
+          <p class="page-desc">把知识点、题库、错题和计划放在同一个面板里，考前复习更稳。</p>
+        </div>
+        <a class="button primary" href="questions.html">开始刷题</a>
+      </section>
+
+      <section class="hero-band">
+        <article class="card">
+          <h2 class="card-title">今日进度</h2>
+          <p class="stat-value" id="progressText">0%</p>
+          <div class="progress" aria-label="复习进度"><span id="progressBar" style="width: 0%"></span></div>
+          <p class="muted">示例进度来自当前知识点掌握情况，后续可接入真实用户进度。</p>
+        </article>
+        <article class="card">
+          <h2 class="card-title">快捷入口</h2>
+          <div class="quick-links">
+            <a class="button" href="topics.html">知识点复盘</a>
+            <a class="button" href="questions.html">章节刷题</a>
+            <a class="button" href="mistakes.html">错题重练</a>
+            <a class="button" href="quiz.html">随机测验</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid grid-4">
+        <article class="card stat">
+          <span class="muted">章节数量</span>
+          <span class="stat-value" id="chapterCount">0</span>
+        </article>
+        <article class="card stat">
+          <span class="muted">知识点</span>
+          <span class="stat-value" id="topicCount">0</span>
+        </article>
+        <article class="card stat">
+          <span class="muted">题目数量</span>
+          <span class="stat-value" id="questionCount">0</span>
+        </article>
+        <article class="card stat">
+          <span class="muted">待复盘错题</span>
+          <span class="stat-value" id="mistakeCount">0</span>
+        </article>
+      </section>
+
+      <section class="grid grid-2" style="margin-top: 16px;">
+        <article class="card">
+          <h2 class="card-title">今日任务</h2>
+          <div class="list" id="todayTasks"></div>
+        </article>
+        <article class="card">
+          <h2 class="card-title">薄弱知识点</h2>
+          <div class="list" id="weakTopics"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "logic-proposition",
+    "name": "命题逻辑",
+    "order": 1,
+    "description": "命题、联结词、真值表、等值演算与推理规则"
+  },
+  {
+    "id": "logic-predicate",
+    "name": "谓词逻辑",
+    "order": 2,
+    "description": "谓词、量词、约束变元、公式解释与推理"
+  },
+  {
+    "id": "set-theory",
+    "name": "集合论",
+    "order": 3,
+    "description": "集合运算、幂集、笛卡尔积、容斥原理"
+  },
+  {
+    "id": "relation",
+    "name": "二元关系",
+    "order": 4,
+    "description": "关系性质、关系矩阵、闭包、等价关系与偏序关系"
+  },
+  {
+    "id": "function",
+    "name": "函数",
+    "order": 5,
+    "description": "单射、满射、双射、复合函数与逆函数"
+  },
+  {
+    "id": "graph",
+    "name": "图论基础",
+    "order": 6,
+    "description": "图的度、连通性、路径、欧拉图与哈密顿图"
+  },
+  {
+    "id": "tree",
+    "name": "树",
+    "order": 7,
+    "description": "树的性质、生成树、最小生成树与根树"
+  },
+  {
+    "id": "algebra",
+    "name": "代数系统",
+    "order": 8,
+    "description": "二元运算、半群、群、环、域的基础概念"
+  },
+  {
+    "id": "boolean",
+    "name": "格与布尔代数",
+    "order": 9,
+    "description": "偏序集、格、布尔代数、布尔函数与范式"
+  }
+]

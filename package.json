@@ -1,0 +1,14 @@
+{
+  "name": "discrete-math-review",
+  "version": "1.0.0",
+  "description": "离散数学期末复习网站项目骨架",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  },
+  "devDependencies": {}
+}

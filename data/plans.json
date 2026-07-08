@@ -1,0 +1,34 @@
+[
+  {
+    "userId": "guest",
+    "examDate": "2026-07-20",
+    "days": [
+      {
+        "date": "2026-07-09",
+        "tasks": [
+          {
+            "id": "task-demo-1",
+            "type": "知识点",
+            "title": "复习命题逻辑与集合论核心概念",
+            "chapterId": "logic-proposition",
+            "completed": false
+          },
+          {
+            "id": "task-demo-2",
+            "type": "刷题",
+            "title": "完成 10 道基础题",
+            "chapterId": null,
+            "completed": false
+          },
+          {
+            "id": "task-demo-3",
+            "type": "错题",
+            "title": "复盘欧拉图相关错题",
+            "chapterId": "graph",
+            "completed": true
+          }
+        ]
+      }
+    ]
+  }
+]
