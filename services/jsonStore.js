@@ -1,9 +1,30 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = path.join(__dirname, '..', 'data');
+const defaultDataDir = path.join(__dirname, '..', 'data');
+const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : defaultDataDir;
+
+function ensureDataDir() {
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
+  // 部署到持久化磁盘时，首次启动会把仓库内置示例数据复制过去。
+  if (dataDir !== defaultDataDir) {
+    const hasJsonFiles = fs.readdirSync(dataDir).some((fileName) => fileName.endsWith('.json'));
+
+    if (!hasJsonFiles && fs.existsSync(defaultDataDir)) {
+      fs.readdirSync(defaultDataDir)
+        .filter((fileName) => fileName.endsWith('.json'))
+        .forEach((fileName) => {
+          fs.copyFileSync(path.join(defaultDataDir, fileName), path.join(dataDir, fileName));
+        });
+    }
+  }
+}
 
 function resolveDataPath(fileName) {
+  ensureDataDir();
   return path.join(dataDir, fileName);
 }
 
@@ -30,6 +51,9 @@ function writeJson(fileName, data) {
 }
 
 module.exports = {
+  dataDir,
+  ensureDataDir,
   readJson,
+  resolveDataPath,
   writeJson
 };

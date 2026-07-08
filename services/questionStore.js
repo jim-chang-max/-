@@ -1,13 +1,11 @@
 const fs = require('fs');
-const path = require('path');
-const { readJson, writeJson } = require('./jsonStore');
+const { readJson, resolveDataPath, writeJson } = require('./jsonStore');
 
-const dataDir = path.join(__dirname, '..', 'data');
 const questionBankFile = 'question_bank.json';
 const questionsFile = 'questions.json';
 
 function fileExists(fileName) {
-  return fs.existsSync(path.join(dataDir, fileName));
+  return fs.existsSync(resolveDataPath(fileName));
 }
 
 function extractQuestions(payload) {
