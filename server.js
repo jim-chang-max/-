@@ -20,6 +20,7 @@ const {
 } = require('./middleware/security');
 const { accessUrls } = require('./services/networkInfo');
 const { startBackupScheduler } = require('./services/backupScheduler');
+const { resolveSessionSecret } = require('./services/sessionSecret');
 const {
   startDatabaseMaintenanceScheduler
 } = require('./services/databaseMaintenanceScheduler');
@@ -42,13 +43,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 const SESSION_MAX_AGE = 1000 * 60 * 60 * 24 * 7;
+const sessionSecret = resolveSessionSecret();
 let httpServer = null;
 let backupScheduler = null;
 let databaseMaintenanceScheduler = null;
 let shutdownPromise = null;
 
-if (process.env.NODE_ENV === 'production' && !process.env.SESSION_SECRET) {
-  throw new Error('生产环境必须配置 SESSION_SECRET');
+if (sessionSecret.ephemeral) {
+  console.warn(
+    'Render 未配置 SESSION_SECRET，当前实例使用临时密钥；服务重启后登录状态会失效。'
+  );
 }
 
 app.use(securityHeaders);
@@ -58,7 +62,7 @@ app.use(express.json({ limit: '100kb', strict: true }));
 
 const sessionOptions = {
   name: 'dmreview.sid',
-  secret: process.env.SESSION_SECRET || 'discrete-math-review-local-secret',
+  secret: sessionSecret.value,
   resave: false,
   saveUninitialized: false,
   cookie: {

@@ -28,7 +28,7 @@
     "user:promote": "node scripts/promote-user.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20 <25"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

@@ -1,10 +1,22 @@
 services:
   - type: web
-    name: discrete-math-review
-    env: node
+    name: "-lisan"
+    runtime: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm ci --omit=dev
     startCommand: npm start
+    healthCheckPath: /api/health/ready
+    autoDeployTrigger: commit
     envVars:
       - key: NODE_ENV
         value: production
+      - key: STORAGE_DRIVER
+        value: json
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: AUTO_BACKUP_ENABLED
+        value: "false"
+      - key: AUTO_DATABASE_MAINTENANCE_ENABLED
+        value: "false"
+      - key: NODE_VERSION
+        value: 24.14.1
