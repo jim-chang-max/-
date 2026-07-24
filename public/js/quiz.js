@@ -1,6 +1,9 @@
 let currentQuiz = null;
 let timer = null;
 let remainSeconds = 0;
+let currentAnswers = {};
+let pendingQuizResult = null;
+let quizFinalized = false;
 const { escapeHtml } = window.ui;
 
 const quizTypeLabels = {
@@ -20,7 +23,11 @@ async function initQuizPage() {
 
   document.querySelector('#quizForm').addEventListener('submit', async (event) => {
     event.preventDefault();
-    await generateQuiz();
+    try {
+      await generateQuiz();
+    } catch (error) {
+      renderApiError(document.querySelector('#quizQuestions'), error);
+    }
   });
 
   document.querySelector('#submitQuiz').addEventListener('click', submitQuiz);
@@ -35,6 +42,9 @@ async function generateQuiz() {
   };
 
   currentQuiz = await postJson('/api/quiz/generate', body);
+  currentAnswers = {};
+  pendingQuizResult = null;
+  quizFinalized = false;
   renderQuizQuestions(currentQuiz.questions);
   startTimer(currentQuiz.limitMinutes);
 }
@@ -103,22 +113,113 @@ function updateTimerText() {
 }
 
 async function submitQuiz() {
-  if (!currentQuiz || !currentQuiz.questions.length) return;
+  if (!currentQuiz || !currentQuiz.questions.length || quizFinalized) return;
 
   clearInterval(timer);
-  const answers = {};
+  const submitButton = document.querySelector('#submitQuiz');
+  submitButton.disabled = true;
+  currentAnswers = {};
 
   currentQuiz.questions.forEach((question) => {
     const checked = document.querySelector(`input[name="quiz-${question.id}"]:checked`);
     const textInput = document.querySelector(`[name="quiz-${question.id}"]:not([type="radio"])`);
-    answers[question.id] = checked ? checked.value : textInput ? textInput.value : '';
+    currentAnswers[question.id] = checked ? checked.value : textInput ? textInput.value : '';
   });
 
-  const result = await postJson('/api/quiz/submit', {
-    questionIds: currentQuiz.questions.map((question) => question.id),
-    answers
-  });
+  try {
+    const result = await postJson('/api/quiz/submit', {
+      quizId: currentQuiz.id,
+      answers: currentAnswers,
+      selfAssessments: {}
+    });
 
+    if (result.requiresSelfAssessment) {
+      pendingQuizResult = result;
+      renderQuizSelfAssessment(result);
+      return;
+    }
+
+    finishQuiz(result);
+  } catch (error) {
+    submitButton.disabled = false;
+    renderEmpty(document.querySelector('#quizResult'), error.message);
+  }
+}
+
+function renderQuizSelfAssessment(result) {
+  const pendingDetails = result.details.filter((item) => item.correct === null);
+
+  document.querySelector('#submitQuiz').classList.add('hidden');
+  document.querySelector('#quizResult').innerHTML = `
+    <section class="card quiz-result-card">
+      <div class="button-row">
+        <span class="tag violet">主观题自评</span>
+        <span class="tag warning">还有 ${pendingDetails.length} 题待确认</span>
+      </div>
+      <p class="muted">请对照参考答案，按实际作答情况选择自评结果。完成全部自评后才会正式计分。</p>
+      <div class="list quiz-review-list">
+        ${pendingDetails.map((item, index) => `
+          <article class="list-item self-assessment-item">
+            <strong>${index + 1}. ${escapeHtml(item.stem)}</strong>
+            <p>你的答案：${escapeHtml(item.userAnswer || '未作答')}</p>
+            <p>参考答案：${escapeHtml(item.correctAnswer)}</p>
+            <p class="muted">${escapeHtml(item.analysis)}</p>
+            <div class="self-assessment-choice">
+              <label>
+                <input type="radio" name="self-assess-${item.questionId}" value="true">
+                <span>我答对了</span>
+              </label>
+              <label>
+                <input type="radio" name="self-assess-${item.questionId}" value="false">
+                <span>需要复习</span>
+              </label>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+      <div class="button-row">
+        <button class="button primary" type="button" id="finalizeSelfAssessment">完成自评并计分</button>
+        <span class="muted" id="selfAssessmentMessage"></span>
+      </div>
+    </section>
+  `;
+
+  document.querySelector('#finalizeSelfAssessment').addEventListener('click', finalizeSelfAssessment);
+}
+
+async function finalizeSelfAssessment() {
+  if (!pendingQuizResult) return;
+
+  const finalizeButton = document.querySelector('#finalizeSelfAssessment');
+  const selfAssessments = {};
+  for (const questionId of pendingQuizResult.pendingSubjectiveIds) {
+    const checked = document.querySelector(`input[name="self-assess-${questionId}"]:checked`);
+    if (!checked) {
+      document.querySelector('#selfAssessmentMessage').textContent = '请完成全部主观题自评。';
+      return;
+    }
+    selfAssessments[questionId] = checked.value === 'true';
+  }
+
+  finalizeButton.disabled = true;
+  try {
+    const result = await postJson('/api/quiz/submit', {
+      quizId: currentQuiz.id,
+      answers: currentAnswers,
+      selfAssessments
+    });
+
+    finishQuiz(result);
+  } catch (error) {
+    finalizeButton.disabled = false;
+    document.querySelector('#selfAssessmentMessage').textContent = error.message;
+  }
+}
+
+function finishQuiz(result) {
+  quizFinalized = true;
+  pendingQuizResult = null;
+  document.querySelector('#submitQuiz').classList.add('hidden');
   renderQuizResult(result);
 }
 
@@ -167,5 +268,5 @@ function renderQuizResult(result) {
 }
 
 initQuizPage().catch((error) => {
-  renderEmpty(document.querySelector('#quizQuestions'), error.message);
+  renderApiError(document.querySelector('#quizQuestions'), error);
 });

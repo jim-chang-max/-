@@ -47,6 +47,16 @@
   font-weight: 600;
 }
 
+.tag.user-action {
+  cursor: pointer;
+  user-select: none;
+}
+
+.tag.user-action:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 2px;
+}
+
 .tag.primary {
   background: var(--primary-soft);
   color: var(--primary-dark);

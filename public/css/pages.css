@@ -358,6 +358,39 @@
   border-left: 4px solid var(--danger);
 }
 
+.self-assessment-actions,
+.self-assessment-item {
+  display: grid;
+  gap: 12px;
+}
+
+.self-assessment-actions {
+  margin-top: 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.self-assessment-choice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.self-assessment-choice label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-tint);
+  padding: 10px 12px;
+}
+
+.self-assessment-choice label:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
 .card-title,
 .list-item h3 {
   overflow-wrap: anywhere;
@@ -494,6 +527,170 @@
   margin: 52px auto;
 }
 
+.account-main-grid {
+  margin-top: 16px;
+}
+
+.account-details {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.account-details > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.5fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-details > div:last-child {
+  border-bottom: 0;
+}
+
+.account-details dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.account-details dd {
+  margin: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.account-password-form {
+  display: grid;
+  gap: 12px;
+}
+
+.account-admin {
+  margin-top: 16px;
+}
+
+.account-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.account-section-head p {
+  margin: 4px 0 0;
+}
+
+.system-stat-grid {
+  margin-bottom: 18px;
+}
+
+.system-access-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(3, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-tint);
+}
+
+.system-access-panel > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.system-access-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+
+.system-access-links a {
+  overflow-wrap: anywhere;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.system-stat {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  border-left: 3px solid var(--primary);
+  background: var(--surface-tint);
+  padding: 10px 12px;
+}
+
+.system-stat strong {
+  overflow-wrap: anywhere;
+}
+
+.status-success {
+  color: var(--success);
+}
+
+.status-danger {
+  color: var(--danger);
+}
+
+.account-subtitle {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.system-log-table {
+  min-width: 760px;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.data-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.data-table th,
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table th {
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table select {
+  min-height: 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 7px 9px;
+  color: var(--text);
+}
+
+.data-table button:disabled,
+.data-table select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 @media (max-width: 900px) {
   .hero-band,
   .topic-layout {
@@ -545,6 +742,14 @@
   .quick-links {
     grid-template-columns: 1fr;
   }
+
+  .account-section-head {
+    flex-direction: column;
+  }
+
+  .system-access-panel {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 560px) {
@@ -562,5 +767,14 @@
 
   .stat-value {
     font-size: 26px;
+  }
+
+  .self-assessment-choice {
+    grid-template-columns: 1fr;
+  }
+
+  .account-details > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

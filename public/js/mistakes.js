@@ -111,5 +111,5 @@ function renderMistakeCard(item) {
 }
 
 loadMistakes().catch((error) => {
-  renderEmpty(document.querySelector('#mistakeList'), error.message);
+  renderApiError(document.querySelector('#mistakeList'), error);
 });

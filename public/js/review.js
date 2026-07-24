@@ -72,5 +72,5 @@ async function saveReview(event) {
 }
 
 loadReviewQuestions().catch((error) => {
-  renderEmpty(document.querySelector('#reviewList'), error.message);
+  renderApiError(document.querySelector('#reviewList'), error);
 });

@@ -4,14 +4,37 @@
   "description": "离散数学期末复习网站",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "test:account": "node scripts/test-account.js",
+    "test:backup": "node scripts/test-backup.js",
+    "db:init": "node scripts/init-mysql.js",
+    "db:integrity": "node scripts/check-integrity.js",
+    "db:maintenance": "node scripts/database-maintenance.js",
+    "db:migrate": "node scripts/migrate-mysql.js",
+    "db:test": "node scripts/test-mysql.js",
+    "db:backup": "node scripts/backup-mysql.js",
+    "db:restore": "node scripts/restore-mysql.js",
+    "host:check": "node scripts/host-check.js",
+    "network:info": "node scripts/network-info.js",
+    "service:start": "node scripts/service-supervisor.js",
+    "service:status": "node scripts/service-status.js",
+    "service:stop": "node scripts/service-stop.js",
+    "test:http-security": "node scripts/test-http-security.js",
+    "test:integrity": "node scripts/test-integrity.js",
+    "test:migrations": "node scripts/test-migrations.js",
+    "test:maintenance": "node scripts/test-maintenance.js",
+    "test:service": "node scripts/test-supervisor.js",
+    "user:promote": "node scripts/promote-user.js"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.2.3",
     "express": "^4.19.2",
-    "express-session": "^1.18.0"
-  },
-  "devDependencies": {}
+    "express-session": "^1.18.0",
+    "mysql2": "^3.15.3"
+  }
 }

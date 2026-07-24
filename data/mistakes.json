@@ -1,6 +1,6 @@
 [
   {
-    "userId": "guest",
+    "userId": "user-demo",
     "questionId": "q006",
     "wrongCount": 1,
     "lastWrongAt": "2026-07-09T00:00:00.000Z",

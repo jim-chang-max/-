@@ -4,8 +4,10 @@ const { escapeHtml } = window.ui;
 let chapters = [];
 let topics = [];
 let selectedChapterId = '';
+let currentUser = null;
+let masteredIds = new Set();
 
-function getMasteredIds() {
+function readLocalMasteredIds() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
   } catch (error) {
@@ -13,26 +15,50 @@ function getMasteredIds() {
   }
 }
 
-function setMasteredIds(ids) {
+function setLocalMasteredIds(ids) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
 }
 
 function isMastered(topicId) {
-  return getMasteredIds().includes(topicId);
+  return masteredIds.has(topicId);
 }
 
-function toggleMastered(topicId) {
-  const ids = getMasteredIds();
-  const next = ids.includes(topicId) ? ids.filter((id) => id !== topicId) : [...ids, topicId];
-  setMasteredIds(next);
+async function toggleMastered(topicId) {
+  const mastered = !masteredIds.has(topicId);
+
+  if (currentUser) {
+    await putJson(`/api/progress/${encodeURIComponent(topicId)}`, { mastered });
+  }
+
+  if (mastered) {
+    masteredIds.add(topicId);
+  } else {
+    masteredIds.delete(topicId);
+  }
+
+  if (!currentUser) {
+    setLocalMasteredIds([...masteredIds]);
+  }
+
   renderAll();
 }
 
 async function loadTopics() {
-  [chapters, topics] = await Promise.all([
+  [currentUser, chapters, topics] = await Promise.all([
+    apiRequest('/api/auth/me'),
     apiRequest('/api/chapters'),
     apiRequest('/api/knowledge')
   ]);
+
+  if (currentUser) {
+    const progress = await apiRequest('/api/progress');
+    masteredIds = new Set(
+      progress.filter((item) => item.status === '已掌握').map((item) => item.knowledgeId)
+    );
+    await migrateLocalProgress();
+  } else {
+    masteredIds = new Set(readLocalMasteredIds());
+  }
 
   selectedChapterId = chapters[0] ? chapters[0].id : '';
 
@@ -43,13 +69,35 @@ async function loadTopics() {
     selectedChapterId = button.dataset.id;
     renderAll();
   });
-  document.querySelector('#topicCards').addEventListener('click', (event) => {
+  document.querySelector('#topicCards').addEventListener('click', async (event) => {
     const button = event.target.closest('[data-master-topic]');
     if (!button) return;
-    toggleMastered(button.dataset.masterTopic);
+    button.disabled = true;
+    try {
+      await toggleMastered(button.dataset.masterTopic);
+    } catch (error) {
+      button.disabled = false;
+      button.textContent = error.message;
+    }
   });
 
   renderAll();
+}
+
+async function migrateLocalProgress() {
+  const savedLocalIds = readLocalMasteredIds();
+  const localIds = savedLocalIds.filter(
+    (id) => topics.some((topic) => topic.id === id) && !masteredIds.has(id)
+  );
+
+  for (const knowledgeId of localIds) {
+    await putJson(`/api/progress/${encodeURIComponent(knowledgeId)}`, { mastered: true });
+    masteredIds.add(knowledgeId);
+  }
+
+  if (savedLocalIds.length) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
 }
 
 function renderAll() {
@@ -59,16 +107,15 @@ function renderAll() {
 }
 
 function renderChapterList() {
-  const masteredIds = getMasteredIds();
   const list = document.querySelector('#chapterList');
-  const totalMastered = topics.filter((topic) => masteredIds.includes(topic.id)).length;
+  const totalMastered = topics.filter((topic) => masteredIds.has(topic.id)).length;
 
   document.querySelector('#masteredSummary').textContent = `${totalMastered} / ${topics.length}`;
 
   list.innerHTML = chapters
     .map((chapter) => {
       const chapterTopics = topics.filter((topic) => topic.chapterId === chapter.id);
-      const masteredCount = chapterTopics.filter((topic) => masteredIds.includes(topic.id)).length;
+      const masteredCount = chapterTopics.filter((topic) => masteredIds.has(topic.id)).length;
       const active = chapter.id === selectedChapterId ? 'active' : '';
 
       return `
@@ -86,14 +133,14 @@ function currentChapter() {
 }
 
 function currentTopics() {
-  const keyword = document.querySelector('#topicSearch').value.trim();
+  const keyword = document.querySelector('#topicSearch').value.trim().toLowerCase();
   const base = topics.filter((topic) => topic.chapterId === selectedChapterId);
 
   if (!keyword) {
     return base;
   }
 
-  return base.filter((topic) => topicToSearchText(topic).includes(keyword));
+  return topics.filter((topic) => topicToSearchText(topic).toLowerCase().includes(keyword));
 }
 
 function topicToSearchText(topic) {
@@ -146,6 +193,7 @@ function renderTopicCard(topic) {
         <div>
           <div class="button-row">
             <span class="tag primary">${escapeHtml(topic.level)}</span>
+            <span class="tag">${escapeHtml(chapterName(topic.chapterId))}</span>
             ${mastered ? '<span class="tag">已掌握</span>' : '<span class="tag warning">待掌握</span>'}
           </div>
           <h3 class="topic-title">${escapeHtml(topic.title)}</h3>
@@ -172,6 +220,10 @@ function renderTopicCard(topic) {
       </div>
     </article>
   `;
+}
+
+function chapterName(chapterId) {
+  return chapters.find((chapter) => chapter.id === chapterId)?.name || '未标注章节';
 }
 
 function renderInfoBlock(title, items = []) {

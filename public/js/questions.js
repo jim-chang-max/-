@@ -15,6 +15,8 @@ const difficultyLabels = {
   hard: '困难'
 };
 
+const subjectiveTypes = new Set(['calculation', 'proof', 'shortAnswer']);
+
 async function initQuestionPage() {
   await renderChapterOptions();
 
@@ -78,6 +80,7 @@ function renderQuestionCard(question) {
           <span class="tag">${typeLabels[question.type] || question.type}</span>
           <span class="tag">${difficultyLabels[question.difficulty] || question.difficulty}</span>
           ${question.needsReview ? '<span class="tag warning">待人工审核</span>' : ''}
+          ${subjectiveTypes.has(question.type) ? '<span class="tag violet">用户自评</span>' : ''}
           <span class="tag ${question.reviewStatus === '易错' ? 'danger' : ''}">${escapeHtml(question.reviewStatus)}</span>
         </div>
         <span class="muted">#${question.id}</span>
@@ -119,28 +122,87 @@ function renderChoiceOptions(question) {
 }
 
 function renderWrittenAnswer(question) {
+  const submitText = subjectiveTypes.has(question.type) ? '提交并查看参考答案' : '提交答案';
+
   return `
     <div class="field">
       <label for="answer-${question.id}">作答区</label>
       <textarea id="answer-${question.id}" name="answer-${question.id}" rows="3" placeholder="可输入你的答案，也可以先查看答案和解析"></textarea>
     </div>
     <div class="button-row">
-      <button class="button primary" type="button" data-submit-answer="${question.id}">提交答案</button>
+      <button class="button primary" type="button" data-submit-answer="${question.id}">${submitText}</button>
       <button class="button" type="button" data-show-answer="${question.id}">查看答案和解析</button>
     </div>
   `;
 }
 
 async function submitAnswer(event) {
+  const submitButton = event.currentTarget;
   const questionId = event.target.dataset.submitAnswer;
   const card = event.target.closest('[data-question-id]');
   const checked = card.querySelector(`input[name="answer-${questionId}"]:checked`);
   const textInput = card.querySelector(`[name="answer-${questionId}"]:not([type="radio"])`);
   const answer = checked ? checked.value : textInput ? textInput.value : '';
   const panel = card.querySelector('[data-answer-panel]');
+  submitButton.disabled = true;
 
-  const result = await postJson('/api/questions/answer', { questionId, answer });
-  panel.classList.remove('hidden');
+  try {
+    const result = await postJson('/api/questions/answer', { questionId, answer });
+    panel.classList.remove('hidden');
+
+    if (result.requiresSelfAssessment) {
+      panel.innerHTML = `
+        <strong>请对照参考答案完成自评</strong>
+        <p>标准答案：${escapeHtml(result.answer)}</p>
+        <p>详细解析：${escapeHtml(result.analysis)}</p>
+        <div class="self-assessment-actions">
+          <span class="muted">你的答案是否正确？</span>
+          <div class="button-row">
+            <button class="button primary" type="button" data-self-assess="true" data-question="${questionId}">我答对了</button>
+            <button class="button danger" type="button" data-self-assess="false" data-question="${questionId}">需要复习</button>
+          </div>
+        </div>
+      `;
+      panel.querySelectorAll('[data-self-assess]').forEach((button) => {
+        button.addEventListener('click', submitSelfAssessment);
+      });
+      return;
+    }
+
+    renderAssessmentResult(panel, result);
+  } catch (error) {
+    submitButton.disabled = false;
+    panel.classList.remove('hidden');
+    panel.textContent = error.message;
+  }
+}
+
+async function submitSelfAssessment(event) {
+  const questionId = event.target.dataset.question;
+  const card = event.target.closest('[data-question-id]');
+  const panel = card.querySelector('[data-answer-panel]');
+  const textInput = card.querySelector(`[name="answer-${questionId}"]:not([type="radio"])`);
+  const buttons = panel.querySelectorAll('[data-self-assess]');
+  buttons.forEach((button) => {
+    button.disabled = true;
+  });
+
+  try {
+    const result = await postJson('/api/questions/self-assess', {
+      questionId,
+      answer: textInput ? textInput.value : '',
+      correct: event.target.dataset.selfAssess === 'true'
+    });
+    renderAssessmentResult(panel, result);
+  } catch (error) {
+    buttons.forEach((button) => {
+      button.disabled = false;
+    });
+    panel.insertAdjacentHTML('beforeend', `<p class="error-text">${escapeHtml(error.message)}</p>`);
+  }
+}
+
+function renderAssessmentResult(panel, result) {
   panel.innerHTML = `
     <strong>${result.correct ? '回答正确' : '回答错误'}</strong>
     <p>标准答案：${escapeHtml(result.answer)}</p>

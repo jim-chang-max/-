@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { getPool, isMysqlEnabled } = require('./mysqlClient');
 
 const defaultDataDir = path.join(__dirname, '..', 'data');
 const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : defaultDataDir;
@@ -28,7 +29,7 @@ function resolveDataPath(fileName) {
   return path.join(dataDir, fileName);
 }
 
-function readJson(fileName, fallback = []) {
+function readJsonFile(fileName, fallback = []) {
   const filePath = resolveDataPath(fileName);
 
   if (!fs.existsSync(filePath)) {
@@ -43,17 +44,62 @@ function readJson(fileName, fallback = []) {
   return JSON.parse(raw);
 }
 
-function writeJson(fileName, data) {
+function writeJsonFile(fileName, data) {
   const filePath = resolveDataPath(fileName);
 
   // 保持 JSON 缩进，方便后续手动添加题目或调整数据。
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
 }
 
+function parseMysqlJson(value, fallback) {
+  if (value === null || value === undefined) {
+    return fallback;
+  }
+
+  if (typeof value === 'string') {
+    return JSON.parse(value);
+  }
+
+  return value;
+}
+
+async function readJson(fileName, fallback = []) {
+  if (!isMysqlEnabled()) {
+    return readJsonFile(fileName, fallback);
+  }
+
+  const [rows] = await getPool().execute(
+    'SELECT content FROM app_documents WHERE file_name = ? LIMIT 1',
+    [fileName]
+  );
+
+  if (!rows.length) {
+    return readJsonFile(fileName, fallback);
+  }
+
+  return parseMysqlJson(rows[0].content, fallback);
+}
+
+async function writeJson(fileName, data) {
+  if (!isMysqlEnabled()) {
+    writeJsonFile(fileName, data);
+    return;
+  }
+
+  await getPool().execute(
+    `INSERT INTO app_documents (file_name, content)
+     VALUES (?, CAST(? AS JSON))
+     ON DUPLICATE KEY UPDATE content = VALUES(content)`,
+    [fileName, JSON.stringify(data)]
+  );
+}
+
 module.exports = {
   dataDir,
   ensureDataDir,
   readJson,
+  readJsonFile,
   resolveDataPath,
-  writeJson
+  writeJson,
+  writeJsonFile
 };

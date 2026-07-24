@@ -1,75 +1,102 @@
 const express = require('express');
-const crypto = require('crypto');
-const { readJson, writeJson } = require('../services/jsonStore');
 const { createId } = require('../utils/id');
+const asyncRoute = require('../utils/asyncRoute');
+const { hashPassword, verifyPassword } = require('../services/passwordService');
+const {
+  destroySession,
+  regenerateSession,
+  saveSession
+} = require('../utils/session');
+const {
+  createUser,
+  findUserById,
+  findUserByUsername
+} = require('../services/userStore');
 
 const router = express.Router();
 
-function hashPassword(password) {
-  // 演示项目使用 SHA-256，正式项目建议使用 bcrypt 或 argon2。
-  return crypto.createHash('sha256').update(password).digest('hex');
+function cleanUsername(value) {
+  return String(value || '').trim().slice(0, 32);
 }
 
-router.post('/register', (req, res) => {
-  const { username, password } = req.body;
-
-  if (!username || !password) {
-    return res.status(400).json({ message: '用户名和密码不能为空' });
+function validateCredentials(username, password) {
+  if (username.length < 2) {
+    return '用户名至少需要 2 个字符';
   }
 
-  const users = readJson('users.json');
-  const exists = users.some((user) => user.username === username);
+  if (String(password || '').length < 8) {
+    return '密码至少需要 8 个字符';
+  }
 
-  if (exists) {
+  if (String(password).length > 128) {
+    return '密码不能超过 128 个字符';
+  }
+
+  return '';
+}
+
+router.post('/register', asyncRoute(async (req, res) => {
+  const username = cleanUsername(req.body.username);
+  const password = String(req.body.password || '');
+  const validationMessage = validateCredentials(username, password);
+
+  if (validationMessage) {
+    return res.status(400).json({ message: validationMessage });
+  }
+
+  if (await findUserByUsername(username)) {
     return res.status(409).json({ message: '用户名已存在' });
   }
 
   const user = {
     id: createId('user'),
     username,
-    passwordHash: hashPassword(password),
+    passwordHash: await hashPassword(password),
+    role: 'student',
     createdAt: new Date().toISOString()
   };
 
-  users.push(user);
-  writeJson('users.json', users);
+  await createUser(user);
 
+  await regenerateSession(req);
   req.session.userId = user.id;
-  res.json({ id: user.id, username: user.username });
-});
+  await saveSession(req);
+  res.json({ id: user.id, username: user.username, role: user.role });
+}));
 
-router.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const users = readJson('users.json');
-  const user = users.find((item) => item.username === username);
+router.post('/login', asyncRoute(async (req, res) => {
+  const username = cleanUsername(req.body.username);
+  const password = String(req.body.password || '');
+  const user = await findUserByUsername(username);
 
-  if (!user || user.passwordHash !== hashPassword(password || '')) {
+  if (!user || !(await verifyPassword(user, password))) {
     return res.status(401).json({ message: '用户名或密码错误' });
   }
 
+  await regenerateSession(req);
   req.session.userId = user.id;
-  res.json({ id: user.id, username: user.username });
-});
+  await saveSession(req);
+  res.json({ id: user.id, username: user.username, role: user.role || 'student' });
+}));
 
-router.post('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.json({ ok: true });
-  });
-});
+router.post('/logout', asyncRoute(async (req, res) => {
+  await destroySession(req);
+  res.clearCookie('dmreview.sid');
+  res.json({ ok: true });
+}));
 
-router.get('/me', (req, res) => {
+router.get('/me', asyncRoute(async (req, res) => {
   if (!req.session.userId) {
     return res.json(null);
   }
 
-  const users = readJson('users.json');
-  const user = users.find((item) => item.id === req.session.userId);
+  const user = await findUserById(req.session.userId);
 
   if (!user) {
     return res.json(null);
   }
 
-  res.json({ id: user.id, username: user.username });
-});
+  res.json({ id: user.id, username: user.username, role: user.role || 'student' });
+}));
 
 module.exports = router;

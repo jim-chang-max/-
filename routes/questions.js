@@ -7,15 +7,18 @@ const {
   getQuestionTitle,
   getQuestionChapter
 } = require('../services/questionStore');
+const asyncRoute = require('../utils/asyncRoute');
+const { recordAnswer } = require('../services/answerRecordStore');
+const { isSubjectiveQuestion } = require('../services/questionTypes');
+const {
+  requireAdmin,
+  requireAuthenticated
+} = require('../middleware/auth');
 
 const router = express.Router();
 const validTypes = new Set(['choice', 'judge', 'blank', 'calculation', 'proof', 'shortAnswer']);
 const validDifficulties = new Set(['easy', 'medium', 'hard']);
 const validReviewStatuses = new Set(['待复习', '已掌握', '易错']);
-
-function currentUserId(req) {
-  return req.session.userId || 'guest';
-}
 
 function searchableText(question) {
   return [
@@ -119,10 +122,31 @@ function normalizeQuestionPatch(body) {
   return patch;
 }
 
-router.get('/', (req, res) => {
+function applyAssessment(question, correct) {
+  if (correct) {
+    question.correctCount = Number(question.correctCount || 0) + 1;
+    question.reviewStatus = question.wrongCount > 0 ? '待复习' : '已掌握';
+  } else {
+    question.wrongCount = Number(question.wrongCount || 0) + 1;
+    question.reviewStatus = '易错';
+  }
+}
+
+function assessmentResponse(question, correct) {
+  return {
+    correct,
+    answer: question.answer,
+    analysis: question.analysis,
+    wrongCount: question.wrongCount,
+    correctCount: question.correctCount,
+    reviewStatus: question.reviewStatus
+  };
+}
+
+router.get('/', asyncRoute(async (req, res) => {
   const { chapter, chapterId, type, difficulty, needsReview, keyword } = req.query;
   const chapterValue = chapter || chapterId;
-  const questions = readQuestions();
+  const questions = await readQuestions();
 
   const filtered = questions.filter((question) => {
     const matchChapter = !chapterValue || getQuestionChapter(question) === chapterValue;
@@ -135,15 +159,15 @@ router.get('/', (req, res) => {
   });
 
   res.json(filtered);
-});
+}));
 
-router.get('/review', (req, res) => {
-  const questions = readQuestions().filter((question) => question.needsReview === true);
+router.get('/review', requireAdmin, asyncRoute(async (req, res) => {
+  const questions = (await readQuestions()).filter((question) => question.needsReview === true);
   res.json(questions);
-});
+}));
 
-router.get('/:id', (req, res) => {
-  const questions = readQuestions();
+router.get('/:id', asyncRoute(async (req, res) => {
+  const questions = await readQuestions();
   const question = questions.find((item) => item.id === req.params.id);
 
   if (!question) {
@@ -151,10 +175,10 @@ router.get('/:id', (req, res) => {
   }
 
   res.json(question);
-});
+}));
 
-router.put('/:id', (req, res) => {
-  const questions = readQuestions();
+router.put('/:id', requireAdmin, asyncRoute(async (req, res) => {
+  const questions = await readQuestions();
   const question = questions.find((item) => item.id === req.params.id);
 
   if (!question) {
@@ -163,45 +187,90 @@ router.put('/:id', (req, res) => {
 
   Object.assign(question, normalizeQuestionPatch(req.body));
 
-  writeQuestions(questions);
+  await writeQuestions(questions);
   res.json(question);
-});
+}));
 
-router.post('/answer', (req, res) => {
-  const { questionId, answer } = req.body;
+router.post('/self-assess', requireAuthenticated, asyncRoute(async (req, res) => {
+  const { questionId, answer, correct } = req.body;
 
   if (!questionId || typeof questionId !== 'string') {
     return res.status(400).json({ message: '题目 ID 不能为空' });
   }
 
-  const questions = readQuestions();
+  if (typeof correct !== 'boolean') {
+    return res.status(400).json({ message: '请选择自评结果' });
+  }
+
+  const questions = await readQuestions();
   const question = questions.find((item) => item.id === questionId);
 
   if (!question) {
     return res.status(404).json({ message: '题目不存在' });
   }
 
-  const correct = isCorrect(question, cleanText(answer, 4000));
-
-  if (correct) {
-    question.correctCount = Number(question.correctCount || 0) + 1;
-    question.reviewStatus = question.wrongCount > 0 ? '待复习' : '已掌握';
-  } else {
-    question.wrongCount = Number(question.wrongCount || 0) + 1;
-    question.reviewStatus = '易错';
-    recordMistake(currentUserId(req), questionId, '题库练习错误');
+  if (!isSubjectiveQuestion(question)) {
+    return res.status(400).json({ message: '该题型不需要用户自评' });
   }
 
-  writeQuestions(questions);
+  applyAssessment(question, correct);
+  if (!correct) {
+    await recordMistake(req.currentUser.id, questionId, '主观题自评错误');
+  }
 
-  res.json({
-    correct,
-    answer: question.answer,
-    analysis: question.analysis,
-    wrongCount: question.wrongCount,
-    correctCount: question.correctCount,
-    reviewStatus: question.reviewStatus
+  await writeQuestions(questions);
+  await recordAnswer({
+    userId: req.currentUser.id,
+    questionId,
+    mode: 'practice',
+    userAnswer: cleanText(answer, 4000),
+    correct
   });
-});
+
+  res.json(assessmentResponse(question, correct));
+}));
+
+router.post('/answer', requireAuthenticated, asyncRoute(async (req, res) => {
+  const { questionId, answer } = req.body;
+
+  if (!questionId || typeof questionId !== 'string') {
+    return res.status(400).json({ message: '题目 ID 不能为空' });
+  }
+
+  const questions = await readQuestions();
+  const question = questions.find((item) => item.id === questionId);
+
+  if (!question) {
+    return res.status(404).json({ message: '题目不存在' });
+  }
+
+  const cleanAnswer = cleanText(answer, 4000);
+  if (isSubjectiveQuestion(question)) {
+    return res.json({
+      requiresSelfAssessment: true,
+      questionId,
+      userAnswer: cleanAnswer,
+      answer: question.answer,
+      analysis: question.analysis
+    });
+  }
+
+  const correct = isCorrect(question, cleanAnswer);
+  applyAssessment(question, correct);
+  if (!correct) {
+    await recordMistake(req.currentUser.id, questionId, '题库练习错误');
+  }
+
+  await writeQuestions(questions);
+  await recordAnswer({
+    userId: req.currentUser.id,
+    questionId,
+    mode: 'practice',
+    userAnswer: cleanAnswer,
+    correct
+  });
+
+  res.json(assessmentResponse(question, correct));
+}));
 
 module.exports = router;

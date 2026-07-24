@@ -10,7 +10,9 @@ async function apiRequest(url, options = {}) {
   const data = await response.json().catch(() => null);
 
   if (!response.ok) {
-    throw new Error((data && data.message) || '请求失败');
+    const error = new Error((data && data.message) || '请求失败');
+    error.status = response.status;
+    throw error;
   }
 
   return data;

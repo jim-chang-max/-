@@ -4,8 +4,12 @@ async function initPlanPage() {
   document.querySelector('#planForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const examDate = document.querySelector('#examDate').value;
-    await postJson('/api/plans/generate', { examDate });
-    await renderPlan();
+    try {
+      await postJson('/api/plans/generate', { examDate });
+      await renderPlan();
+    } catch (error) {
+      renderApiError(document.querySelector('#planList'), error);
+    }
   });
 
   await renderPlan();
@@ -49,5 +53,5 @@ async function renderPlan() {
 }
 
 initPlanPage().catch((error) => {
-  renderEmpty(document.querySelector('#planList'), error.message);
+  renderApiError(document.querySelector('#planList'), error);
 });

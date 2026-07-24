@@ -1,6 +1,9 @@
 node_modules/
 .pnpm-store/
 logs/
+backups/
+runtime/
 import-question-bank/
 *.log
 .env
+npm-debug.log*

@@ -1,13 +1,13 @@
 [
   {
-    "userId": "guest",
+    "userId": "user-demo",
     "knowledgeId": "truth-table",
     "status": "已掌握",
     "reviewCount": 2,
     "lastReviewedAt": "2026-07-09"
   },
   {
-    "userId": "guest",
+    "userId": "user-demo",
     "knowledgeId": "relation-property",
     "status": "待复习",
     "reviewCount": 1,
